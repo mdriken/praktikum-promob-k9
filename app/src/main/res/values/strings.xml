@@ -3,4 +3,7 @@
     <string name="btn_signup"><u>Register disini</u></string>
     <string name="btn_login"><u>Login</u></string>
     <string name="slogan">Easiest way to buy ticket with us</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
