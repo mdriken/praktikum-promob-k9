@@ -1,7 +1,6 @@
-package com.example.riken.etic;
+package com.example.riken.etic.activity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.design.button.MaterialButton;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +10,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.riken.etic.ApiClient;
+import com.example.riken.etic.R;
+import com.example.riken.etic.Register;
 import com.example.riken.etic.models.LoginResponse;
 import com.example.riken.etic.storage.SharedPrefManager;
 
@@ -44,15 +46,6 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
                 String email = etName.getText().toString();
                 String password = etPassword.getText().toString();
-//                SharedPreferences preferences = getSharedPreferences("MYPREFS", MODE_PRIVATE);
-
-//                String savedPassword = preferences.getString(password, "");
-//                String savedUserName = preferences.getString(user, "");
-
-//                String userDetails = preferences.getString(user + password + "data","No information on that user.");
-//                SharedPreferences.Editor editor = preferences.edit();
-//                editor.putString("display",userDetails);
-//                editor.commit();
                 call = ApiClient.getApiService().login("jomblo1@gmail.com","gunawan26");
                 call.enqueue(new Callback<LoginResponse>() {
                     @Override
