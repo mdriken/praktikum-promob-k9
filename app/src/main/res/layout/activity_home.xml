@@ -143,7 +143,6 @@
         </RelativeLayout>
 
 
-
         //grid akan tanyang
         <GridLayout
             android:layout_width="match_parent"
@@ -163,14 +162,14 @@
                     android:layout_height="match_parent">
 
                     <com.github.siyamed.shapeimageview.RoundedImageView
-                        android:id="@+id/iv_fim_bg"
+                        android:id="@+id/iv_fim_bg_next"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:siRadius="10dp"
                         android:src="@drawable/searhing"/>
 
                     <TextView
-                        android:id="@+id/tv_film_name"
+                        android:id="@+id/tv_film_name_next"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
@@ -186,7 +185,7 @@
 
             </android.support.design.card.MaterialCardView>
         </GridLayout>
-        
+
     </LinearLayout>
 
 </ScrollView>
