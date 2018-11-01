@@ -17,6 +17,7 @@
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary">
 
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -41,6 +42,12 @@
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
+        <android.support.v7.widget.AppCompatSpinner
+            android:layout_width="match_parent"
+            android:id="@+id/spinner_bioskop"
+            android:layout_height="wrap_content"
+            android:spinnerMode="dropdown">
+        </android.support.v7.widget.AppCompatSpinner>
 
         //Sedang Tayang Bar
         <RelativeLayout

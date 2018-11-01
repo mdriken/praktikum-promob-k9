@@ -10,7 +10,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
     private static JsonPlaceHolderApi INSTANCE;
-    private static final String URL =  "http://172.17.100.2:8000/api/auth/";
+    private static final String URL =  "http://10.0.0.2:8000/api/auth/";
 
     public static JsonPlaceHolderApi getApiService(){
         if(INSTANCE==null){
