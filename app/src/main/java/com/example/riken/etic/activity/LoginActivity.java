@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.example.riken.etic.ApiClient;
 import com.example.riken.etic.R;
-import com.example.riken.etic.Register;
 import com.example.riken.etic.models.LoginResponse;
 import com.example.riken.etic.storage.SharedPrefManager;
 
@@ -21,7 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class Login extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
     private Call<LoginResponse> call;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +33,10 @@ public class Login extends AppCompatActivity {
         TextView btnRegister = (TextView) findViewById(R.id.btn_intent_signup);
 
         if (SharedPrefManager.getmInstance(this).isLoggin()){
-            Toast.makeText(Login.this,"logged in",Toast.LENGTH_LONG).show();
+            Toast.makeText(LoginActivity.this,"logged in",Toast.LENGTH_LONG).show();
 //            Toast.makeText(MainActivity.this, "Hello, You are still login!", Toast.LENGTH_LONG).show();
         }else{
-            Toast.makeText(Login.this,"not logged in",Toast.LENGTH_LONG).show();
+            Toast.makeText(LoginActivity.this,"not logged in",Toast.LENGTH_LONG).show();
         }
 
 
@@ -53,20 +52,20 @@ public class Login extends AppCompatActivity {
                         LoginResponse loginResponse = response.body();
                         Log.d("response", " "+ response.body().getAccess_token());
                         if (response.body().isStatus()){
-                            SharedPrefManager.getmInstance(Login.this).saveToken(loginResponse);
-                            Intent displayScreen = new Intent(Login.this, MainActivity.class);
+                            SharedPrefManager.getmInstance(LoginActivity.this).saveToken(loginResponse);
+                            Intent displayScreen = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(displayScreen);
-                            Toast.makeText(Login.this,"successfully login"+response.body().getAccess_token(),Toast.LENGTH_LONG).show();
-                            Toast.makeText(Login.this, ""+response.body(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this,"successfully login"+response.body().getAccess_token(),Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this, ""+response.body(), Toast.LENGTH_SHORT).show();
                         }else{
 
                         }
-//                        Toast.makeText(Login.this, "Ops.. Something went wrong with your internet connection", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(LoginActivity.this, "Ops.. Something went wrong with your internet connection", Toast.LENGTH_LONG).show();
                     }
 
                     @Override
                     public void onFailure(Call<LoginResponse> call, Throwable t) {
-                        Toast.makeText(Login.this, "Ops.. Something went wrong with your internet connection", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "Ops.. Something went wrong with your internet connection", Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -77,7 +76,7 @@ public class Login extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent registerScreen = new Intent(Login.this, Register.class);
+                Intent registerScreen = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(registerScreen);
             }
         });

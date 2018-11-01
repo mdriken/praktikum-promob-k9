@@ -18,11 +18,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        SharedPreferences preferences = getSharedPreferences("MYPREFS", MODE_PRIVATE);
-//        String display = preferences.getString("display", "");
-//
-//        TextView displayInfo = (TextView) findViewById(R.id.textViewName);
-//        displayInfo.setText(display);
+        SharedPreferences preferences = getSharedPreferences("MYPREFS", MODE_PRIVATE);
+        String display = preferences.getString("display", "");
+
+        TextView displayInfo = (TextView) findViewById(R.id.textViewName);
+        displayInfo.setText(display);
 
     }
 }

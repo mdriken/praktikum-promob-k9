@@ -6,7 +6,7 @@ public class LoginResponse {
      * access_token : eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC8xMjcuMC4wLjE6ODAwMFwvYXBpXC9hdXRoXC9sb2dpbiIsImlhdCI6MTU0MDYyOTI2OCwiZXhwIjoxNTQwNjMyODY4LCJuYmYiOjE1NDA2MjkyNjgsImp0aSI6IjVTaEM4bENJTFJSaTR5Mk8iLCJzdWIiOjQsInBydiI6Ijg3ZTBhZjFlZjlmZDE1ODEyZmRlYzk3MTUzYTE0ZTBiMDQ3NTQ2YWEifQ.nk-JT0wbs1WOXa0-6xA1I1D0hCGUyeoAWG5CvVh_Er8
      * token_type : bearer
      * expires_in : 3600
-     */
+     */ 
 
     private boolean status;
     private String access_token;

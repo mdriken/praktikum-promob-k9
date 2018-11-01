@@ -1,4 +1,4 @@
-package com.example.riken.etic;
+package com.example.riken.etic.activity;
 
 import android.content.SharedPreferences;
 import android.support.design.button.MaterialButton;
@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.riken.etic.R;
 
-public class Register extends AppCompatActivity {
+
+public class RegisterActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
