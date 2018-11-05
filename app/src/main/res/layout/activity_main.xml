@@ -7,28 +7,12 @@
     android:orientation="vertical"
     android:background="#fff">
 
-    <!--<TextView-->
-        <!--android:textSize="20sp"-->
-        <!--android:textStyle="bold"-->
-        <!--android:layout_width="150dp"-->
-        <!--android:layout_height="50dp"-->
-        <!--android:text="New Text"-->
-        <!--android:id="@+id/textViewName"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginTop="121dp" />-->
-
 
     <FrameLayout
         android:id="@+id/frag_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/btn_navView">
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="TEXT"
-    android:id="@+id/textViewName"/>
     </FrameLayout>
 
     <android.support.design.widget.BottomNavigationView

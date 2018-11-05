@@ -27,7 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        final TextInputEditText etName = (TextInputEditText) findViewById(R.id.tvUsername);
+        final TextInputEditText etName = (TextInputEditText) findViewById(R.id.tvEmail);
         final TextInputEditText etPassword = (TextInputEditText) findViewById(R.id.tvPassword);
         MaterialButton btnLogin = (MaterialButton) findViewById(R.id.btnLogin);
         TextView btnRegister = (TextView) findViewById(R.id.btn_intent_signup);

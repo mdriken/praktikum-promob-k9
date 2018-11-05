@@ -22,7 +22,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         final TextInputEditText userName = (TextInputEditText) findViewById(R.id.tvUsernameNew);
         final TextInputEditText password = (TextInputEditText) findViewById(R.id.tv_passwordNew);
-        final TextInputEditText email = (TextInputEditText) findViewById(R.id.tv_email);
+        final TextInputEditText email = (TextInputEditText) findViewById(R.id.tv_emailNew);
         MaterialButton btnRegister = (MaterialButton) findViewById(R.id.btn_signup);
         TextView backLogin = (TextView) findViewById(R.id.btn_intent_login);
 

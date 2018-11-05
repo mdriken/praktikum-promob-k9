@@ -21,4 +21,12 @@
         <item>Incredibles</item>
     </string-array>
 
+    <string-array name="list_bioskop">
+        <item>Bioskop 1</item>
+        <item>Bioskop 2</item>
+        <item>Bioskop 3</item>
+        <item>Bioskop 4</item>
+        <item>Bioskop 5</item>
+    </string-array>
+
 </resources>
