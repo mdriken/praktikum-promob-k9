@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.DetailFilmActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:padding="10dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <com.github.siyamed.shapeimageview.RoundedImageView
+                android:layout_marginRight="10dp"
+                app:siRadius="10dp"
+                android:id="@+id/iv_detail_film_gambar"
+                android:layout_width="140dp"
+                android:layout_height="170dp"
+                android:src="@drawable/searhing"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/tv_detail_film_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_toRightOf="@id/iv_detail_film_gambar"
+                android:text="Harold and Kumar"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_toRightOf="@id/iv_detail_film_gambar"
+                android:text="Genre"
+                android:textStyle="bold"
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/tv_detail_film_genre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_toRightOf="@id/iv_detail_film_gambar"
+                android:text="Action"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:layout_toRightOf="@id/iv_detail_film_gambar"
+                android:text="Durasi"
+                android:textStyle="bold"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:id="@+id/tv_detail_film_duration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="75dp"
+                android:layout_toRightOf="@id/iv_detail_film_gambar"
+                android:text="1 Jam 20 Menit"
+                android:textSize="12sp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="95dp"
+                android:layout_toRightOf="@id/iv_detail_film_gambar"
+                android:text="Sutradara"
+                android:textStyle="bold"
+                android:textSize="12sp"/>
+            <TextView
+                android:id="@+id/tv_detail_film_sutradara"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="110dp"
+                android:layout_toRightOf="@id/iv_detail_film_gambar"
+                android:text="Roger Deakins"
+
+                android:textSize="12sp"/>
+
+            <Button
+                android:id="@+id/btn_whislist"
+                android:layout_toRightOf="@id/iv_detail_film_gambar"
+                android:layout_width="100dp"
+                android:hint="+ Whistlist"
+                android:textSize="10sp"
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="135dp"
+                android:layout_height="35dp" />
+
+        </RelativeLayout>
+
+
+        <android.support.design.widget.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tablayout"
+            app:tabTextColor="#ffff"
+            android:background="@color/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        </android.support.design.widget.TabLayout>
+
+
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/pager">
+
+        </android.support.v4.view.ViewPager>
+
+    </LinearLayout>
+
+</LinearLayout>
