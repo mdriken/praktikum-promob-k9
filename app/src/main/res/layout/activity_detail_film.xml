@@ -90,7 +90,6 @@
                 android:layout_marginTop="110dp"
                 android:layout_toRightOf="@id/iv_detail_film_gambar"
                 android:text="Roger Deakins"
-
                 android:textSize="12sp"/>
 
             <Button

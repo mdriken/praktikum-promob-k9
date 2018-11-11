@@ -49,8 +49,8 @@ public class DetailFilmActivity extends AppCompatActivity implements TabJadwalFr
         ivDetail.setImageResource(image);
 
                 TabLayout tabLayout = (TabLayout) findViewById(R.id.tablayout);
+        tabLayout.addTab(tabLayout.newTab().setText("Jadwal"));
         tabLayout.addTab(tabLayout.newTab().setText("Sinopsis"));
-        tabLayout.addTab(tabLayout.newTab().setText("Pemesanan"));
 //        tabLayout.addTab(tabLayout.newTab().setText("Tab 3"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
