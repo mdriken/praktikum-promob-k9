@@ -6,6 +6,8 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -17,7 +19,7 @@ import com.example.riken.etic.fragment.TabSinopsisFragment;
 
 public class DetailFilmActivity extends AppCompatActivity implements TabJadwalFragment.OnFragmentInteractionListener,TabSinopsisFragment.OnFragmentInteractionListener {
 
-   private TextView tvTitle, tvGenre, tvDuration, tvSutradara;
+   private TextView tvTitle, tvGenre, tvDuration, tvSutradara, tvJudulTab;
    private ImageView ivDetail;
 
 
@@ -27,7 +29,14 @@ public class DetailFilmActivity extends AppCompatActivity implements TabJadwalFr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_film);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         tvTitle = (TextView) findViewById(R.id.tv_detail_film_title);
+        tvJudulTab = (TextView) findViewById(R.id.tabNamaFilm);
         tvGenre = (TextView) findViewById(R.id.tv_detail_film_genre);
         tvDuration = (TextView) findViewById(R.id.tv_detail_film_duration);
         tvSutradara = (TextView) findViewById(R.id.tv_detail_film_sutradara);
@@ -36,6 +45,7 @@ public class DetailFilmActivity extends AppCompatActivity implements TabJadwalFr
         //receive data
         Intent intent = getIntent();
         String Title = intent.getExtras().getString("Title");
+        String Judul = intent.getExtras().getString("Title");
         String Genre = intent.getExtras().getString("Genre");
         String Duration = intent.getExtras().getString("Duration");
         String Sutradara = intent.getExtras().getString("Sutradara");
@@ -45,6 +55,7 @@ public class DetailFilmActivity extends AppCompatActivity implements TabJadwalFr
         tvTitle.setText(Title);
         tvGenre.setText(Genre);
         tvDuration.setText(Duration);
+        tvJudulTab.setText(Judul);
         tvSutradara.setText(Sutradara);
         ivDetail.setImageResource(image);
 
@@ -81,6 +92,16 @@ public class DetailFilmActivity extends AppCompatActivity implements TabJadwalFr
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if(id == android.R.id.home){
+            this.finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

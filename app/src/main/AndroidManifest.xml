@@ -21,7 +21,6 @@
         </activity>
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.DetailFilmActivity" />
-        <activity android:name=".ProfileFragment"></activity>
     </application>
 
 </manifest>

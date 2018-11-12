@@ -54,6 +54,7 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.MyViewHolder> 
         intent.putExtra("Duration", films.get(position).getDuration());
         intent.putExtra("Sutradara", films.get(position).getSutradara());
         intent.putExtra("Thumbnail", films.get(position).getThumbnails());
+        intent.putExtra("Judul", films.get(position).getJudulTab());
         context.startActivity(intent);
 
             }

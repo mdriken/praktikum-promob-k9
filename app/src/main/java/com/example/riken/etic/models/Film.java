@@ -7,14 +7,16 @@ public class Film {
     private String Duration;
     private String Sutradara;
     private int Thumbnails;
+    private String JudulTab;
 
     public Film () {
 
     }
 
-    public Film (String title, String genre, int thumbnails, String duration, String sutradara) {
+    public Film (String title, String genre, int thumbnails, String duration, String sutradara, String judulTab) {
         Title = title;
         Genre = genre;
+        JudulTab = judulTab;
         Duration = duration;
         Sutradara = sutradara;
         Thumbnails = thumbnails;
@@ -36,6 +38,10 @@ public class Film {
         return Thumbnails;
     }
 
+    public String getJudulTab() {
+        return JudulTab;
+    }
+
     public void setTitle(String title) {
         Title = title;
     }
@@ -48,5 +54,9 @@ public class Film {
 
     public void setThumbnails(int thumbnails) {
         Thumbnails = thumbnails;
+    }
+
+    public void setJudulTab(String judulTab) {
+        JudulTab = judulTab;
     }
 }

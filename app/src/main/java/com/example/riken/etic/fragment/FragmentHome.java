@@ -42,9 +42,9 @@ public class FragmentHome extends Fragment {
         myFilm = new ArrayList<>();
 
         for (int i=0; i<3; i++){
-            myFilm.add(new Film("Miles 22", "Action", R.drawable.mile22, "1 jam 20 menit", "Riken Indra"));
-            myFilm.add(new Film("Ant Man", "Action", R.drawable.antman, "1 jam 25 menit", "Manusia Semut"));
-            myFilm.add(new Film("Incredibles 2", "Action, Comedy", R.drawable.incredibles, "2 jam 10 menit", "Manusia Karet"));
+            myFilm.add(new Film("Miles 22", "Action", R.drawable.mile22, "1 jam 20 menit", "Riken Indra","Miles 22"));
+            myFilm.add(new Film("Ant Man", "Action", R.drawable.antman, "1 jam 25 menit", "Manusia Semut", "Ant Man"));
+            myFilm.add(new Film("Incredibles 2", "Action, Comedy", R.drawable.incredibles, "2 jam 10 menit", "Manusia Karet", "Incredibles 2"));
         }
 
         recyclerViewOn = v.findViewById(R.id.rc_ongoing);
@@ -67,9 +67,9 @@ public class FragmentHome extends Fragment {
         myFilm = new ArrayList<>();
 
         for (int i=0; i<3; i++){
-            myFilm.add(new Film("Searching", "Drama", R.drawable.searhing, "2 Jam 10 Menit", "Wayan Koplar"));
-            myFilm.add(new Film("Spider-Man", "Action, Animation", R.drawable.spiderman, "2 Jam 10 Menit", "Mr. Gondrong"));
-            myFilm.add(new Film("Wreck-It Ralph 2", "Animation", R.drawable.wreck, "2 Jam 10 Menit", "Tukang Coding"));
+            myFilm.add(new Film("Searching", "Drama", R.drawable.searhing, "2 Jam 10 Menit", "Wayan Koplar", "Searching"));
+            myFilm.add(new Film("Spider-Man", "Action, Animation", R.drawable.spiderman, "2 Jam 10 Menit", "Mr. Gondrong", "Spider-Man"));
+            myFilm.add(new Film("Wreck-It Ralph 2", "Animation", R.drawable.wreck, "2 Jam 10 Menit", "Tukang Coding","Wreck-It Ralph"));
 
         }
 

@@ -2,31 +2,7 @@
     <string name="app_name">ETic</string>
     <string name="btn_signup"><u>Register disini</u></string>
     <string name="btn_login"><u>Login</u></string>
-    <string name="slogan">Easiest way to buy ticket with us</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <array name="film_image">
-        <item>@drawable/antman</item>
-        <item>@drawable/searhing</item>
-        <item>@drawable/mile22</item>
-        <item>@drawable/incredibles</item>
-    </array>
-
-    <string-array name="film_name">
-        <item>Ant-ManC</item>
-        <item>Searching</item>
-        <item>Mile 22</item>
-        <item>Incredibles</item>
-    </string-array>
-
-    <string-array name="list_bioskop">
-        <item>Bioskop 1</item>
-        <item>Bioskop 2</item>
-        <item>Bioskop 3</item>
-        <item>Bioskop 4</item>
-        <item>Bioskop 5</item>
-    </string-array>
 
 </resources>
