@@ -17,10 +17,12 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView btn_navView;
     Fragment fragment;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         btn_navView = findViewById(R.id.btn_navView);
         btn_navView.setOnNavigationItemSelectedListener(navListener);

@@ -42,19 +42,11 @@
                 android:src="@drawable/ic_person_white" />
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
-        <Spinner
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner_bioskop"
-            android:spinnerMode="dropdown">
-
-        </Spinner>
-
 
         //Sedang Tayang Bar
         <LinearLayout
             android:id="@+id/layout_on_going"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">

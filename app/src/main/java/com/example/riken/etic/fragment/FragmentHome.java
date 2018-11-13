@@ -3,7 +3,6 @@ package com.example.riken.etic.fragment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -22,7 +21,6 @@ public class FragmentHome extends Fragment {
 
     List<Film> myFilm;
 
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -34,9 +32,10 @@ public class FragmentHome extends Fragment {
 
     }
 
+
+
     public void setMyFilmOn (View v) {
         RecyclerView recyclerViewOn;
-//        RecyclerView recyclerViewUp;
         FilmAdapter filmAdapter;
 
         myFilm = new ArrayList<>();
@@ -48,15 +47,12 @@ public class FragmentHome extends Fragment {
         }
 
         recyclerViewOn = v.findViewById(R.id.rc_ongoing);
-//        recyclerViewUp = v.findViewById(R.id.rc_upcoming);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false);
         filmAdapter = new FilmAdapter(getContext(), myFilm);
         recyclerViewOn.setLayoutManager(layoutManager);
         recyclerViewOn.setAdapter(filmAdapter);
-//        recyclerViewUp.setLayoutManager(layoutManager);
-//        recyclerViewUp.setAdapter(filmAdapter);
 
     }
 

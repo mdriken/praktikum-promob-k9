@@ -12,4 +12,6 @@
         android:id="@+id/nav_tiket"
         android:title="Ticket"
         android:icon="@drawable/ic_fav"/>
+
+
 </menu>

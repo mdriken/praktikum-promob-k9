@@ -7,13 +7,13 @@
     android:orientation="vertical"
     android:background="#fff">
 
-
     <FrameLayout
         android:id="@+id/frag_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/btn_navView">
     </FrameLayout>
+
 
     <android.support.design.widget.BottomNavigationView
         android:id="@+id/btn_navView"
