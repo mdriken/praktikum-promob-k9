@@ -32,8 +32,6 @@ public class FragmentHome extends Fragment {
 
     }
 
-
-
     public void setMyFilmOn (View v) {
         RecyclerView recyclerViewOn;
         FilmAdapter filmAdapter;
