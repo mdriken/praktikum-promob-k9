@@ -1,24 +1,17 @@
 package com.example.riken.etic.fragment;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-
-import com.example.riken.etic.AkanTayangFragment;
-import com.example.riken.etic.FragmentSedangTayang;
 import com.example.riken.etic.MainFilmTablayout;
 import com.example.riken.etic.R;
-import com.example.riken.etic.activity.DetailFilmActivity;
 import com.example.riken.etic.adapter.FilmAdapter;
 import com.example.riken.etic.models.Film;
 
@@ -52,6 +45,7 @@ public class FragmentHome extends Fragment {
         setMyFilmOn(view);
         setMyFilmUp(view);
         return view;
+
 
 
     }
@@ -98,6 +92,8 @@ public class FragmentHome extends Fragment {
         recyclerViewUp.setLayoutManager(layoutManager);
         recyclerViewUp.setAdapter(filmAdapter);
     }
+
+
 
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
