@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.github.siyamed.shapeimageview.RoundedImageView
+                android:id="@+id/iv_detail_film_gambar"
+                android:layout_width="100dp"
+                android:layout_height="130dp"
+                android:layout_margin="10dp"
+                android:layout_marginRight="15dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/searhing"
+                app:siRadius="10dp" />
+
+            <TextView
+                android:id="@+id/tv_detail_film_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_toRightOf="@id/iv_detail_film_gambar"
+                android:layout_weight="1"
+                android:text="Harold and Kumar"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/genreId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="45dp"
+                android:layout_toRightOf="@id/iv_detail_film_gambar"
+                android:text="Genre"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_detail_film_genre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/tv_detail_film_duration"
+                android:layout_alignTop="@+id/genreId"
+                android:layout_alignBottom="@+id/genreId"
+                android:layout_marginStart="-1dp"
+                android:layout_marginLeft="65dp"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="-1dp"
+                android:layout_toRightOf="@id/iv_detail_film_gambar"
+                android:text="Action"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/durasiId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/genreId"
+                android:layout_alignTop="@+id/genreId"
+                android:layout_alignBottom="@+id/genreId"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="-25dp"
+                android:layout_toRightOf="@id/iv_detail_film_gambar"
+                android:text="Durasi"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_detail_film_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/durasiId"
+                android:layout_alignTop="@+id/durasiId"
+                android:layout_alignEnd="@+id/durasiId"
+                android:layout_alignBottom="@+id/durasiId"
+                android:layout_marginStart="56dp"
+                android:layout_marginLeft="66dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="-145dp"
+                android:layout_marginBottom="0dp"
+                android:layout_toRightOf="@id/iv_detail_film_gambar"
+                android:text="1 Jam 20 Menit"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_beli_tiket"
+                android:layout_toRightOf="@id/iv_detail_film_gambar"
+                android:layout_width="100dp"
+                android:text="BELI TIKET"
+                android:textSize="10sp"
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="90dp"
+                android:layout_height="35dp" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
