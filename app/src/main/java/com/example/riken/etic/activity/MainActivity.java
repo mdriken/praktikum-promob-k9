@@ -11,9 +11,10 @@ import com.example.riken.etic.R;
 import com.example.riken.etic.fragment.TiketFragment;
 import com.example.riken.etic.fragment.WhislistFragment;
 import com.example.riken.etic.fragment.FragmentHome;
+import com.example.riken.etic.sqllite.DatabaseHelper;
 
 public class MainActivity extends AppCompatActivity {
-
+    DatabaseHelper db;
     BottomNavigationView btn_navView;
     Fragment fragment;
 
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         btn_navView = findViewById(R.id.btn_navView);
         btn_navView.setOnNavigationItemSelectedListener(navListener);
         fragment = new FragmentHome();
+        db = new DatabaseHelper(this);
         getSupportFragmentManager().beginTransaction().replace(R.id.frag_layout, fragment).commit();
     }
 

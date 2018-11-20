@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.riken.etic.R;
+import com.example.riken.etic.sqllite.DatabaseHelper;
 
 
 public class WhislistFragment extends Fragment {
@@ -20,6 +21,7 @@ public class WhislistFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_whislist,container,false);
+
 
         return view;
     }
