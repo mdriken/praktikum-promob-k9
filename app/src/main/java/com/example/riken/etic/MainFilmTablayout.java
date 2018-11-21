@@ -1,11 +1,14 @@
 package com.example.riken.etic;
 
+import android.graphics.Color;
 import android.net.Uri;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.MenuItem;
 
 import com.example.riken.etic.adapter.PagerTabFilmAdapter;
@@ -20,8 +23,11 @@ public class MainFilmTablayout extends AppCompatActivity implements FragmentSeda
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tablayoutfilm);
         tabLayout.addTab(tabLayout.newTab().setText("Sedang Tayang"));
@@ -67,7 +73,5 @@ public class MainFilmTablayout extends AppCompatActivity implements FragmentSeda
         }
         return super.onOptionsItemSelected(item);
     }
-
-
 }
 
