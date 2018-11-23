@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.example.riken.etic.R;
+import com.example.riken.etic.fragment.ProfileFragment;
 import com.example.riken.etic.fragment.TiketFragment;
 import com.example.riken.etic.fragment.WhislistFragment;
 import com.example.riken.etic.fragment.FragmentHome;
@@ -47,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_tiket:
                             fragment = new TiketFragment();
                             break;
+                        case R.id.nav_profil:
+                            fragment = new ProfileFragment();
+                            break;
+
                     }
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.frag_layout, fragment).commit();

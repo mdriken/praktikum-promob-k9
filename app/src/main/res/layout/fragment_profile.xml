@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.ProfileFragment">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Profile"
+        app:titleTextColor="#fff"
+        android:background="@color/colorPrimary">
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#3f808080"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="356dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="#ccffffff"
+                app:cardCornerRadius="20dp">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="20dp">
+
+
+                    <TextView
+                        android:id="@+id/namaUser"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/IdGambar"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="44dp"
+                        android:text="I Made Riken Indra Putera "
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+
+                    //usernama
+
+                    <ImageView
+                        android:id="@+id/IdGambar"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="95dp"
+                        android:src="@drawable/ic_person_grey"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/usernamaId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/IdGambar"
+
+                        android:layout_alignTop="@+id/IdGambar"
+                        android:layout_alignBottom="@+id/IdGambar"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="Userame"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_id_nama"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/usernamaId"
+                        android:layout_alignTop="@+id/usernamaId"
+                        android:layout_marginStart="96dp"
+                        android:layout_marginLeft="65dp"
+                        android:text="mdriken"
+                        android:textSize="12sp" />
+
+                    //email
+
+                    <ImageView
+                        android:id="@+id/IdGambarEmail"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignStart="@+id/IdGambar"
+                        android:layout_alignTop="@+id/IdGambar"
+                        android:layout_alignEnd="@+id/IdGambar"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginEnd="0dp"
+                        android:src="@drawable/ic_email"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/emailId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/IdGambarEmail"
+                        android:layout_alignBottom="@+id/IdGambarEmail"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="45dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="Email"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_id_email"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/tv_id_nama"
+                        android:layout_alignTop="@+id/emailId"
+                        android:layout_alignBottom="@+id/emailId"
+                        android:layout_marginStart="-2dp"
+                        android:layout_marginLeft="65dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginBottom="0dp"
+                        android:text="maderiken30@gmail.com"
+                        android:textSize="12sp" />
+
+
+                    //email
+
+                    <ImageView
+                        android:id="@+id/IdGambarTelp"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignStart="@+id/IdGambarEmail"
+                        android:layout_alignTop="@+id/IdGambarEmail"
+                        android:layout_alignEnd="@+id/IdGambarEmail"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginEnd="0dp"
+                        android:src="@drawable/ic_date_grey"
+                        android:textStyle="bold" />
+
+
+                    <TextView
+                        android:id="@+id/telpId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/IdGambarTelp"
+                        android:layout_alignBottom="@+id/IdGambarTelp"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginTop="45dp"
+                        android:layout_marginBottom="4dp"
+                        android:text="Tanggal Lahir"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_id_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignStart="@+id/tv_id_nama"
+                        android:layout_alignTop="@+id/telpId"
+                        android:layout_alignBottom="@+id/telpId"
+                        android:layout_marginStart="-2dp"
+                        android:layout_marginLeft="65dp"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginBottom="0dp"
+                        android:text="27-09-1997"
+                        android:textSize="12sp" />
+
+
+                    <android.support.design.button.MaterialButton
+                        android:layout_width="309dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginBottom="40dp"
+                        android:backgroundTint="#818181"
+                        android:text="EDIT PROFILE"
+                        app:cornerRadius="8dp"
+                        app:strokeColor="#000000"
+                        app:strokeWidth="10sp" />
+
+                </RelativeLayout>
+
+
+            </android.support.v7.widget.CardView>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>
+

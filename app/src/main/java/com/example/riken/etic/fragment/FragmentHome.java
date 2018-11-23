@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.example.riken.etic.MainFilmTablayout;
+
 import com.example.riken.etic.R;
 import com.example.riken.etic.adapter.FilmAdapter;
 import com.example.riken.etic.models.Film;

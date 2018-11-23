@@ -11,7 +11,13 @@
     <item
         android:id="@+id/nav_tiket"
         android:title="Ticket"
-        android:icon="@drawable/ic_fav"/>
+        android:icon="@drawable/ic_tiket"/>
+
+    <item
+        android:id="@+id/nav_profil"
+        android:title="Profile"
+        android:icon="@drawable/ic_account"/>
+
 
 
 </menu>

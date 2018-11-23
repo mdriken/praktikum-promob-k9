@@ -1,4 +1,4 @@
-package com.example.riken.etic;
+package com.example.riken.etic.fragment;
 
 import android.content.Context;
 import android.net.Uri;
@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.riken.etic.R;
 import com.example.riken.etic.adapter.FilmAdapter;
 import com.example.riken.etic.adapter.FilmTabLayoutAdapter;
 import com.example.riken.etic.models.Film;
