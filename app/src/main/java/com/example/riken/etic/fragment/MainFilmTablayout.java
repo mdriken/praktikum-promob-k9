@@ -1,17 +1,17 @@
-package com.example.riken.etic;
+package com.example.riken.etic.fragment;
 
-import android.graphics.Color;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.text.SpannableString;
-import android.text.style.ForegroundColorSpan;
 import android.view.MenuItem;
 
+import com.example.riken.etic.FragmentSedangTayang;
+import com.example.riken.etic.R;
 import com.example.riken.etic.adapter.PagerTabFilmAdapter;
+import com.example.riken.etic.fragment.AkanTayangFragment;
 
 public class MainFilmTablayout extends AppCompatActivity implements FragmentSedangTayang.OnFragmentInteractionListener, AkanTayangFragment.OnFragmentInteractionListener{
 

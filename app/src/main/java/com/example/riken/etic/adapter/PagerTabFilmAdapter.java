@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.riken.etic.AkanTayangFragment;
+import com.example.riken.etic.fragment.AkanTayangFragment;
 import com.example.riken.etic.FragmentSedangTayang;
 
 
