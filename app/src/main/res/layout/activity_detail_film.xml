@@ -25,11 +25,28 @@
                 android:id="@+id/tabNamaFilm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:text="Detail Films"
                 android:textColor="#fff"
                 android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title" />
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true">
+
+                <com.github.ivbaranov.mfb.MaterialFavoriteButton
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="19dp"
+                    app:mfb_color="white" />
+            </RelativeLayout>
         </RelativeLayout>
+
+
     </android.support.v7.widget.Toolbar>
 
     <LinearLayout
@@ -48,8 +65,8 @@
                 android:layout_marginRight="10dp"
                 app:siRadius="10dp"
                 android:id="@+id/iv_detail_film_gambar"
-                android:layout_width="140dp"
-                android:layout_height="170dp"
+                android:layout_width="100dp"
+                android:layout_height="130dp"
                 android:src="@drawable/searhing"
                 android:scaleType="centerCrop" />
 
@@ -58,6 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_marginTop="10dp"
                 android:layout_toRightOf="@id/iv_detail_film_gambar"
                 android:text="Harold and Kumar"
                 android:textSize="14sp"
@@ -66,16 +84,18 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
+                android:layout_alignStart="@+id/tv_detail_film_title"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="40dp"
                 android:layout_toRightOf="@id/iv_detail_film_gambar"
                 android:text="Genre"
-                android:textStyle="bold"
-                android:textSize="12sp"/>
+                android:textSize="12sp"
+                android:textStyle="bold" />
             <TextView
                 android:id="@+id/tv_detail_film_genre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="55dp"
                 android:layout_toRightOf="@id/iv_detail_film_gambar"
                 android:text="Action"
                 android:textSize="12sp"/>
@@ -83,47 +103,54 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="60dp"
+                android:layout_below="@+id/tv_detail_film_genre"
+                android:layout_alignStart="@+id/tv_detail_film_genre"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
                 android:layout_toRightOf="@id/iv_detail_film_gambar"
                 android:text="Durasi"
-                android:textStyle="bold"
-                android:textSize="12sp"/>
+                android:textSize="12sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/tv_detail_film_duration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="75dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="95dp"
+                android:layout_marginBottom="-19dp"
                 android:layout_toRightOf="@id/iv_detail_film_gambar"
                 android:text="1 Jam 20 Menit"
-                android:textSize="12sp"/>
+                android:textSize="12sp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="95dp"
-                android:layout_toRightOf="@id/iv_detail_film_gambar"
-                android:text="Sutradara"
-                android:textStyle="bold"
-                android:textSize="12sp"/>
-            <TextView
-                android:id="@+id/tv_detail_film_sutradara"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="110dp"
-                android:layout_toRightOf="@id/iv_detail_film_gambar"
-                android:text="Roger Deakins"
-                android:textSize="12sp"/>
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="95dp"-->
+                <!--android:layout_toRightOf="@id/iv_detail_film_gambar"-->
+                <!--android:text="Sutradara"-->
+                <!--android:textStyle="bold"-->
+                <!--android:textSize="12sp"/>-->
+            <!--<TextView-->
+                <!--android:id="@+id/tv_detail_film_sutradara"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="110dp"-->
+                <!--android:layout_toRightOf="@id/iv_detail_film_gambar"-->
+                <!--android:text="Roger Deakins"-->
+                <!--android:textSize="12sp"/>-->
 
-            <Button
-                android:id="@+id/btn_whislist"
-                android:layout_toRightOf="@id/iv_detail_film_gambar"
-                android:layout_width="wrap_content"
-                android:text="ADD TO FAVORITE"
-                android:textSize="10sp"
-                android:background="@color/colorPrimary"
-                android:layout_marginTop="135dp"
-                android:layout_height="35dp" />
+            <!--<Button-->
+                <!--android:id="@+id/btn_whislist"-->
+                <!--android:layout_toRightOf="@id/iv_detail_film_gambar"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:text="ADD TO FAVORITE"-->
+                <!--android:textSize="10sp"-->
+                <!--android:background="@color/colorPrimary"-->
+                <!--android:layout_marginTop="135dp"-->
+                <!--android:layout_height="35dp" />-->
         </RelativeLayout>
 
         <android.support.design.widget.TabLayout

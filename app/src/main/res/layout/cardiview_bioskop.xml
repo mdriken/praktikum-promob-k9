@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="340dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="15dp"
+    android:elevation="10dp"
+    android:clickable="true"
+    android:id="@+id/cv_list"
+    app:cardCornerRadius="10dp"
+    android:layout_height="130dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.github.siyamed.shapeimageview.RoundedImageView
+            android:id="@+id/list_bioskop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            app:siRadius="10dp" />
+
+        <TextView
+            android:id="@+id/tv_nama_bioskop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/list_bioskop"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="0dp"
+            android:background="#92ffffff"
+            android:gravity="center_horizontal"
+            android:text="Bioskop 1"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_harga"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="68dp"
+            android:layout_marginEnd="0dp"
+            android:background="#92ffffff"
+            android:gravity="center_horizontal"
+            android:text="Rp 40.000/orang"
+            android:textSize="18sp" />
+
+
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

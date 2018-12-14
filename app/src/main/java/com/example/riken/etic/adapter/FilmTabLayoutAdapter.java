@@ -52,7 +52,7 @@ public class FilmTabLayoutAdapter extends RecyclerView.Adapter<FilmTabLayoutAdap
                 intent.putExtra("Title", films.get(position).getTitle());
                 intent.putExtra("Genre", films.get(position).getGenre());
                 intent.putExtra("Duration", films.get(position).getDuration());
-                intent.putExtra("Sutradara", films.get(position).getSutradara());
+//                intent.putExtra("Sutradara", films.get(position).getSutradara());
                 intent.putExtra("Thumbnail", films.get(position).getThumbnails());
                 intent.putExtra("Judul", films.get(position).getJudulTab());
                 context.startActivity(intent);

@@ -19,7 +19,7 @@ import com.example.riken.etic.fragment.TabSinopsisFragment;
 
 public class DetailFilmActivity extends AppCompatActivity implements TabJadwalFragment.OnFragmentInteractionListener,TabSinopsisFragment.OnFragmentInteractionListener {
 
-   private TextView tvTitle, tvGenre, tvDuration, tvSutradara, tvJudulTab;
+   private TextView tvTitle, tvGenre, tvDuration, tvJudulTab;
    private ImageView ivDetail;
 
 
@@ -39,7 +39,7 @@ public class DetailFilmActivity extends AppCompatActivity implements TabJadwalFr
         tvJudulTab = (TextView) findViewById(R.id.tabNamaFilm);
         tvGenre = (TextView) findViewById(R.id.tv_detail_film_genre);
         tvDuration = (TextView) findViewById(R.id.tv_detail_film_duration);
-        tvSutradara = (TextView) findViewById(R.id.tv_detail_film_sutradara);
+//        tvSutradara = (TextView) findViewById(R.id.tv_detail_film_sutradara);
         ivDetail = (ImageView) findViewById(R.id.iv_detail_film_gambar);
 
         //receive data
@@ -48,7 +48,7 @@ public class DetailFilmActivity extends AppCompatActivity implements TabJadwalFr
         String Judul = intent.getExtras().getString("Title");
         String Genre = intent.getExtras().getString("Genre");
         String Duration = intent.getExtras().getString("Duration");
-        String Sutradara = intent.getExtras().getString("Sutradara");
+//        String Sutradara = intent.getExtras().getString("Sutradara");
         int image = intent.getExtras().getInt("Thumbnail");
 
         //settingvalue
@@ -56,7 +56,7 @@ public class DetailFilmActivity extends AppCompatActivity implements TabJadwalFr
         tvGenre.setText(Genre);
         tvDuration.setText(Duration);
         tvJudulTab.setText(Judul);
-        tvSutradara.setText(Sutradara);
+//        tvSutradara.setText(Sutradara);
         ivDetail.setImageResource(image);
 
                 TabLayout tabLayout = (TabLayout) findViewById(R.id.tablayout);

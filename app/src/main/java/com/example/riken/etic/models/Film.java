@@ -5,9 +5,10 @@ public class Film {
     private String Title;
     private String Genre;
     private String Duration;
-    private String Sutradara;
+//    private String Sutradara;
     private int Thumbnails;
     private String JudulTab;
+    private int id;
 
     public Film () {
 
@@ -18,8 +19,9 @@ public class Film {
         Genre = genre;
         JudulTab = judulTab;
         Duration = duration;
-        Sutradara = sutradara;
+//        Sutradara = sutradara;
         Thumbnails = thumbnails;
+//        id = id;
     }
 
     public String getTitle () {
@@ -32,7 +34,7 @@ public class Film {
 
     public String getDuration() { return Duration; }
 
-    public String getSutradara() { return Sutradara; }
+//    public String getSutradara() { return Sutradara; }
 
     public int getThumbnails() {
         return Thumbnails;
@@ -42,6 +44,10 @@ public class Film {
         return JudulTab;
     }
 
+//    public int getId() {
+//        return id;
+
+
     public void setTitle(String title) {
         Title = title;
     }
@@ -50,7 +56,7 @@ public class Film {
 
     public void setDuration(String duration) { Duration = duration; }
 
-    public void setSutradara(String sutradara) { Sutradara = sutradara; }
+//    public void setSutradara(String sutradara) { Sutradara = sutradara; }
 
     public void setThumbnails(int thumbnails) {
         Thumbnails = thumbnails;
@@ -59,4 +65,8 @@ public class Film {
     public void setJudulTab(String judulTab) {
         JudulTab = judulTab;
     }
+
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 }
