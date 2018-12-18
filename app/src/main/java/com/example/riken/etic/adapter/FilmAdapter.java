@@ -13,18 +13,22 @@ import android.widget.TextView;
 
 import com.example.riken.etic.R;
 import com.example.riken.etic.activity.DetailFilmActivity;
-import com.example.riken.etic.models.Film;
+import com.example.riken.etic.models.DataItem;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.MyViewHolder> {
 
     private Context context;
-    private List<Film> films;
+//    private List<Film> films;
+    private List<DataItem> dataItems = new ArrayList<>();
 
-    public FilmAdapter (Context context, List<Film> films) {
+
+
+    public FilmAdapter (Context context, List<DataItem> dataItems) {
         this.context = context;
-        this.films = films;
+        this.dataItems = dataItems;
     }
 
     @NonNull
@@ -39,23 +43,18 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, final int position) {
-        myViewHolder.iv_film_bg.setImageResource(films.get(position).getThumbnails());
-        myViewHolder.tv_film_genre.setText(films.get(position).getGenre());
-        myViewHolder.tv_film.setText(films.get(position).getTitle());
+        final DataItem dataItem = dataItems.get(position);
+        myViewHolder.tv_film_genre.setText(dataItem.getNamaGenre());
+        myViewHolder.tv_film.setText(dataItem.getNamaFilm());
+        myViewHolder.iv_film_bg.setImageResource(R.drawable.searhing);
+
         myViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-        Intent intent = new Intent(context, DetailFilmActivity.class);
-        //parsing data to detail
-        intent.putExtra("Title", films.get(position).getTitle());
-        intent.putExtra("Genre", films.get(position).getGenre());
-        intent.putExtra("Duration", films.get(position).getDuration());
-//        intent.putExtra("Sutradara", films.get(position).getSutradara());
-        intent.putExtra("Thumbnail", films.get(position).getThumbnails());
-        intent.putExtra("Judul", films.get(position).getJudulTab());
-        context.startActivity(intent);
+                Intent intent = new Intent(context,DetailFilmActivity.class);
+                intent.putExtra("Title",dataItems.get(position).getNamaFilm());
+                intent.putExtra("Genre",dataItems.get(position).getNamaGenre());
+                intent.putExtra("Duration",dataItems.get(position).getDurasi());
 
             }
         });
@@ -69,7 +68,7 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.MyViewHolder> 
 
     @Override
     public int getItemCount() {
-        return films.size();
+        return dataItems.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{

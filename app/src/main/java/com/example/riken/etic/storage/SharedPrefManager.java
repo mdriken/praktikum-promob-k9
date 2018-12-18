@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import com.example.riken.etic.models.LoginResponse;
+import com.example.riken.etic.models.NewLoginResponse;
 import com.example.riken.etic.models.User;
 
 public class SharedPrefManager {
@@ -24,15 +25,10 @@ public class SharedPrefManager {
         return mInstance;
     }
 
-    public void saveToken(LoginResponse loginResponse){
+    public void saveToken(NewLoginResponse newLoginResponse){
         SharedPreferences sharedPreferences =mContext.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         SharedPreferences.Editor editor =sharedPreferences.edit();
-
-        editor.putBoolean("status",loginResponse.isStatus());
-        editor.putString("access_token",loginResponse.getAccess_token());
-        editor.putString("token_type",loginResponse.getToken_type());
-        editor.putInt("expires_in",loginResponse.getExpires_in());
-
+        editor.putString("access_token",newLoginResponse.getAccessToken());
         editor.apply();
     }
 
@@ -45,17 +41,19 @@ public class SharedPrefManager {
 
     public boolean isLoggin(){
         SharedPreferences sharedPreferences =mContext.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
-        return sharedPreferences.getString("token_type",null) != null;
+        return sharedPreferences.getString("access_token",null) != null;
     }
 
-    public LoginResponse getToken(){
+    public NewLoginResponse getToken(){
         SharedPreferences sharedPreferences =mContext.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
-        return new LoginResponse(
-                sharedPreferences.getBoolean("status",false),
-                sharedPreferences.getString("access_token",null),
-                sharedPreferences.getString("token_type",null),
-                sharedPreferences.getInt("expires_in",0)
+        return new NewLoginResponse(
+                sharedPreferences.getString("access_token",null)
         );
+    }
+
+    public String getMyToken(){
+        SharedPreferences sharedPreferences =mContext.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
+        return sharedPreferences.getString("access_token","");
     }
 
     public User getUser(){
