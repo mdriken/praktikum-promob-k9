@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.riken.etic.R;
 import com.example.riken.etic.activity.DetailFilmActivity;
+import com.example.riken.etic.models.DataItem;
 import com.example.riken.etic.models.Film;
 
 import java.util.List;
@@ -20,11 +21,12 @@ import java.util.List;
 public class FilmTabLayoutAdapter extends RecyclerView.Adapter<FilmTabLayoutAdapter.MyViewHolder> {
 
     private Context context;
-    private List<Film> films;
+    private List<Film> films ;
+    private List<DataItem> dataItems;
 
-    public FilmTabLayoutAdapter(Context context, List<Film> films) {
+    public FilmTabLayoutAdapter(Context context, List<DataItem> dataItems) {
         this.context = context;
-        this.films = films;
+        this.dataItems = dataItems;
     }
 
     @NonNull

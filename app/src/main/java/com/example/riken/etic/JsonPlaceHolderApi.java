@@ -2,13 +2,14 @@ package com.example.riken.etic;
 
 
 import com.example.riken.etic.models.NewLoginResponse;
-
-import java.util.Date;
+import com.example.riken.etic.models.SedangTayangResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 
 public interface JsonPlaceHolderApi {
@@ -33,6 +34,15 @@ public interface JsonPlaceHolderApi {
     );
 //    @GET("hello")Call<HelloResponse>
 
+    @GET("sedang-tayang")
+    Call<SedangTayangResponse> sedangtayang(
+            @Query("token") String token
+    );
 
+
+    @GET("akan-tayang")
+    Call<SedangTayangResponse> akantayang(
+      @Query("token") String token
+    );
 }
 

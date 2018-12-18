@@ -12,8 +12,8 @@ public class ApiClient {
     private static JsonPlaceHolderApi INSTANCE;
 
 //    private static final String URL =  "http://10.0.0.2:8000/api/auth/";
-    private static final String URL = "http://10.164.129.195:8000/api/auth/"; //connect to android
-//    private static final String URL =  "http://172.17.100.2:8000/api/auth/";
+//    private static final String URL = "http://10.164.129.195:8000/api/auth/"; //connect to android
+    private static final String URL =  "http://172.17.100.2:8000/api/auth/";
 
     public static JsonPlaceHolderApi getApiService(){
         if(INSTANCE==null){
@@ -23,6 +23,7 @@ public class ApiClient {
             ok.addInterceptor(logging);
             Retrofit ret = new Retrofit.Builder()
                     .baseUrl(URL)
+                    .client(ok.build())
                     .addConverterFactory(GsonConverterFactory.create(new Gson()))
                     .build();
             INSTANCE = ret.create(JsonPlaceHolderApi.class);

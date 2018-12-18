@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
             Toast.makeText(LoginActivity.this,"logged in",Toast.LENGTH_LONG).show();
             Intent displayScreen = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(displayScreen);
+            finish();
 
         }else{
             Toast.makeText(LoginActivity.this,"not logged in",Toast.LENGTH_LONG).show();
@@ -68,7 +69,9 @@ public class LoginActivity extends AppCompatActivity {
                                 SharedPrefManager.getmInstance(LoginActivity.this).saveToken(newLoginResponse);
                                 Intent displayScreen = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(displayScreen);
+
                                 Toast.makeText(LoginActivity.this, ""+response.body().getAccessToken(), Toast.LENGTH_SHORT).show();
+                                finish();
 
                             }else{
                                 Log.d("ferguso", "onResponse: True"+new Gson().toJson(response));

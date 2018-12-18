@@ -51,6 +51,11 @@ public class SharedPrefManager {
         );
     }
 
+    public String getMyToken(){
+        SharedPreferences sharedPreferences =mContext.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
+        return sharedPreferences.getString("access_token","");
+    }
+
     public User getUser(){
         SharedPreferences sharedPreferences =mContext.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         return new User(

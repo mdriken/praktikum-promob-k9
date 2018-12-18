@@ -108,6 +108,7 @@ public class RegisterActivity extends AppCompatActivity implements DatePickerDia
                                 SharedPrefManager.getmInstance(RegisterActivity.this).saveToken(newLoginResponse);
                                 Intent displayScreen = new Intent(RegisterActivity  .this, MainActivity.class);
                                 startActivity(displayScreen);
+                                finish();
                             }
                         }else{
                             Log.d("gagal","ga mau anjeng");
