@@ -20,11 +20,11 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        final TextInputEditText userName = (TextInputEditText) findViewById(R.id.tvUsernameNew);
-        final TextInputEditText password = (TextInputEditText) findViewById(R.id.tv_passwordNew);
-        final TextInputEditText email = (TextInputEditText) findViewById(R.id.tv_emailNew);
-        MaterialButton btnRegister = (MaterialButton) findViewById(R.id.btn_signup);
-        TextView backLogin = (TextView) findViewById(R.id.btn_intent_login);
+        final TextInputEditText userName = findViewById(R.id.tvUsernameNew);
+        final TextInputEditText password = findViewById(R.id.tv_passwordNew);
+        final TextInputEditText email = findViewById(R.id.tv_emailNew);
+        MaterialButton btnRegister = findViewById(R.id.btn_signup);
+        TextView backLogin = findViewById(R.id.btn_intent_login);
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override

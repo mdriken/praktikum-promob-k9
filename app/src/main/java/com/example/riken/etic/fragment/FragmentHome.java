@@ -98,8 +98,8 @@ public class FragmentHome extends Fragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         // get the button view
-        nextlayout = (ImageView) getView().findViewById(R.id.next_sedangtayang);
-        akantayang = (ImageView) getView().findViewById(R.id.next_akantayang);
+        nextlayout = getView().findViewById(R.id.next_sedangtayang);
+        akantayang = getView().findViewById(R.id.next_akantayang);
         // set a onclick listener for when the button gets clicked
         nextlayout.setOnClickListener(new View.OnClickListener() {
             // Start new list activity

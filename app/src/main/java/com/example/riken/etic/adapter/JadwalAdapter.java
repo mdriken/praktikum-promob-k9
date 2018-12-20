@@ -1,6 +1,7 @@
 package com.example.riken.etic.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.riken.etic.BookingActivity;
 import com.example.riken.etic.R;
 import com.example.riken.etic.models.Jadwal;
 
@@ -38,27 +40,14 @@ import java.util.List;
         public void onBindViewHolder(@NonNull JadwalAdapter.MyViewHolder myViewHolder, final int position) {
             myViewHolder.tv_bioskop.setText(jadwal.get(position).getBioskopNamre());
             myViewHolder.tv_harga.setText(jadwal.get(position).getHarga());
+            myViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, BookingActivity.class);
+                    context.startActivity(intent);
+                }
+            });
 
-//            myViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//
-//
-//                    Intent intent = new Intent(context, DetailFilmActivity.class);
-//                    //parsing data to detail
-//                    intent.putExtra("Title", films.get(position).getTitle());
-//                    intent.putExtra("Genre", films.get(position).getGenre());
-//                    intent.putExtra("Duration", films.get(position).getDuration());
-////        intent.putExtra("Sutradara", films.get(position).getSutradara());
-//                    intent.putExtra("Thumbnail", films.get(position).getThumbnails());
-//                    intent.putExtra("Judul", films.get(position).getJudulTab());
-//                    context.startActivity(intent);
-//
-//                }
-//            });
-
-//        Intent intent = new Intent(context, TestView.class);
-//        intent.p
 
 
         }
