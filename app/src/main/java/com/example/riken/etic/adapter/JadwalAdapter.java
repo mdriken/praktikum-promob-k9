@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.riken.etic.R;
 import com.example.riken.etic.models.Jadwal;
+import com.example.riken.etic.models.ListBioskopResponse;
 
 import java.util.List;
 
@@ -18,10 +19,11 @@ import java.util.List;
 
         private Context context;
         private List<Jadwal> jadwal;
+        private List<ListBioskopResponse> listBioskopResponses;
 
-        public JadwalAdapter (Context context, List<Jadwal> jadwal) {
+        public JadwalAdapter (Context context, List<ListBioskopResponse> listBioskopResponses) {
             this.context = context;
-            this.jadwal = jadwal;
+            this.listBioskopResponses = listBioskopResponses;
         }
 
         @NonNull
@@ -36,9 +38,10 @@ import java.util.List;
 
         @Override
         public void onBindViewHolder(@NonNull JadwalAdapter.MyViewHolder myViewHolder, final int position) {
-            myViewHolder.tv_bioskop.setText(jadwal.get(position).getBioskopNamre());
-            myViewHolder.tv_harga.setText(jadwal.get(position).getHarga());
-
+//            myViewHolder.tv_bioskop.setText(jadwal.get(position).getBioskopNamre());
+//            myViewHolder.tv_harga.setText(jadwal.get(position).getHarga());
+            myViewHolder.tv_bioskop.setText(listBioskopResponses.get(position).getNamaBioskop());
+            myViewHolder.tv_harga.setText(String.valueOf(listBioskopResponses.get(position).getHarga()));
 //            myViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
@@ -66,7 +69,7 @@ import java.util.List;
 
         @Override
         public int getItemCount() {
-            return jadwal.size();
+            return listBioskopResponses.size();
         }
 
         public static class MyViewHolder extends RecyclerView.ViewHolder{

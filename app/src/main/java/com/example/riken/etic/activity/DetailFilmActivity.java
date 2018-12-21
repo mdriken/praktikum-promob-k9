@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -15,12 +16,16 @@ import com.example.riken.etic.R;
 import com.example.riken.etic.adapter.PagerAdapter;
 import com.example.riken.etic.fragment.TabJadwalFragment;
 import com.example.riken.etic.fragment.TabSinopsisFragment;
+import com.example.riken.etic.sqllite.DatabaseHelper;
+import com.github.ivbaranov.mfb.MaterialFavoriteButton;
 
 
 public class DetailFilmActivity extends AppCompatActivity implements TabJadwalFragment.OnFragmentInteractionListener,TabSinopsisFragment.OnFragmentInteractionListener {
 
    private TextView tvTitle, tvGenre, tvDuration, tvJudulTab;
    private ImageView ivDetail;
+    DatabaseHelper myDb;
+   public boolean isFavNull;
 
 
 
@@ -44,12 +49,13 @@ public class DetailFilmActivity extends AppCompatActivity implements TabJadwalFr
 
         //receive data
         Intent intent = getIntent();
-        String Title = intent.getExtras().getString("Title");
+        final int Id_film = intent.getExtras().getInt("Id film");
+        final String Title = intent.getExtras().getString("Title");
         String Judul = intent.getExtras().getString("Title");
-        String Genre = intent.getExtras().getString("Genre");
-        String Duration = intent.getExtras().getString("Duration");
+        final String Genre = intent.getExtras().getString("Genre");
+        final String Duration = intent.getExtras().getString("Duration");
 //        String Sutradara = intent.getExtras().getString("Sutradara");
-        int image = intent.getExtras().getInt("Thumbnail");
+        final int image = intent.getExtras().getInt("Thumbnail");
 
         //settingvalue
         tvTitle.setText(Title);
@@ -86,6 +92,38 @@ public class DetailFilmActivity extends AppCompatActivity implements TabJadwalFr
 
             }
         });
+        myDb=new DatabaseHelper(this);
+        isFavNull = myDb.isFavorited(Id_film);
+        MaterialFavoriteButton materialFavoriteButtonNice =
+                (MaterialFavoriteButton) findViewById(R.id.fav_btn);
+
+        if(isFavNull){
+            materialFavoriteButtonNice.setFavorite(false,true);
+        }else{
+            materialFavoriteButtonNice.setFavorite(true,false);
+        }
+
+
+        materialFavoriteButtonNice.setOnFavoriteChangeListener(
+                new MaterialFavoriteButton.OnFavoriteChangeListener() {
+                    @Override
+                    public void onFavoriteChanged(MaterialFavoriteButton buttonView, boolean favorite) {
+                        if (favorite) {
+                            myDb.insertWishlistFilm(Id_film,Title,null,Genre,Duration,null,null,null,"dummy");
+                            Log.d("test","ini fav");
+                        } else {
+                            Log.d("test","ini tidak fav");
+                            myDb.deleteFav(Id_film);
+                        }
+                    }
+                });
+        materialFavoriteButtonNice.setOnFavoriteAnimationEndListener(
+                new MaterialFavoriteButton.OnFavoriteAnimationEndListener() {
+                    @Override
+                    public void onAnimationEnd(MaterialFavoriteButton buttonView, boolean favorite) {
+//                        niceCounter.setText(String.valueOf(niceCounterValue));
+                    }
+                });
 
     }
 
@@ -103,6 +141,8 @@ public class DetailFilmActivity extends AppCompatActivity implements TabJadwalFr
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 
 
 }

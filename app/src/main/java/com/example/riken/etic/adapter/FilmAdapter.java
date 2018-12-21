@@ -52,10 +52,13 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.MyViewHolder> 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context,DetailFilmActivity.class);
+                intent.putExtra("Id film",dataItems.get(position).getId());
                 intent.putExtra("Title",dataItems.get(position).getNamaFilm());
                 intent.putExtra("Genre",dataItems.get(position).getNamaGenre());
                 intent.putExtra("Duration",dataItems.get(position).getDurasi());
-
+                intent.putExtra("Thumbnail", R.drawable.searhing);
+                intent.putExtra("Judul",dataItems.get(position).getNamaFilm());
+                context.startActivity(intent);
             }
         });
 

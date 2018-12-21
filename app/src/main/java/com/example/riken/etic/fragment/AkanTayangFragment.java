@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.example.riken.etic.ApiClient;
@@ -53,15 +54,17 @@ public class AkanTayangFragment extends Fragment  {
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_akan_tayang, container, false);
-        setMyFilmSedang(view);
+
         return view;
     }
 
-    public void setMyFilmSedang (View v) {
+    public void setMyFilmSedang () {
         RecyclerView recyclerViewAkan;
         FilmTabLayoutAdapter filmTabLayoutAdapter;
 
-
+        recyclerViewAkan = getActivity().findViewById(R.id.rc_akan);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),
+                LinearLayoutManager.VERTICAL, false);
 //        myFilm = new ArrayList<>();
 //
 //        for (int i=0; i<3; i++){
@@ -71,9 +74,7 @@ public class AkanTayangFragment extends Fragment  {
 //
 //        }
 
-        recyclerViewAkan = v.findViewById(R.id.rc_akan);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),
-                LinearLayoutManager.VERTICAL, false);
+
         filmTabLayoutAdapter = new FilmTabLayoutAdapter(getContext(), mydataItemUp);
         recyclerViewAkan.setLayoutManager(layoutManager);
         recyclerViewAkan.setAdapter(filmTabLayoutAdapter);
@@ -94,6 +95,7 @@ public class AkanTayangFragment extends Fragment  {
             public void onResponse(Call<SedangTayangResponse> call, Response<SedangTayangResponse> response) {
                 if(response.code()==200){
                     mydataItemUp = response.body().getData();
+                    setMyFilmSedang();
                 }
             }
 

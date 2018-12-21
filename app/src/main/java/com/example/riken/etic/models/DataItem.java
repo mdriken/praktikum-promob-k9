@@ -5,6 +5,17 @@ import com.google.gson.annotations.SerializedName;
 
 
 public class DataItem{
+	public DataItem(String fotoFilm, String statusTayang, String tanggalSelesai, String tglMulai, int id, String deskripsi, String namaGenre, String durasi, String namaFilm) {
+		this.fotoFilm = fotoFilm;
+		this.statusTayang = statusTayang;
+		this.tanggalSelesai = tanggalSelesai;
+		this.tglMulai = tglMulai;
+		this.id = id;
+		this.deskripsi = deskripsi;
+		this.namaGenre = namaGenre;
+		this.durasi = durasi;
+		this.namaFilm = namaFilm;
+	}
 
 	@SerializedName("foto_film")
 	private String fotoFilm;
