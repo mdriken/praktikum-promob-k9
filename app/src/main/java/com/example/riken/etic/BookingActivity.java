@@ -6,13 +6,18 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.riken.etic.adapter.CustomAdapter;
 import com.example.riken.etic.adapter.FilmAdapter;
 import com.example.riken.etic.adapter.TanggalAdater;
 import com.example.riken.etic.models.Jam;
 import com.example.riken.etic.models.Tanggal;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,8 +26,19 @@ public class BookingActivity extends AppCompatActivity implements OnSeatSelected
 //    private static final int COLUMNS = 5;
     private static final int COLUMNS = 11;
     private TextView txtSeatSelected;
+    ArrayList<String> listbooked = new ArrayList<String>();
     List<Tanggal> myTanggal;
     List<Jam> myJam;
+    Spinner spinner;
+    CustomAdapter adapters;
+    String[] names = {
+            "A1", "A2","A3","A4","A5","A6","A7","A8","A9","A10",
+            "B1", "B2","B3","B4","B5","B6","B7","B8","B9","B10",
+            "C1", "C2","C3","C4","C5","C6","C7","C8","C9","C10",
+            "D1", "D2","D3","D4","D5","D6","D7","D8","D9","D10"
+    };
+
+//    int[] images = {R.drawable.iv_seat_black};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +82,32 @@ public class BookingActivity extends AppCompatActivity implements OnSeatSelected
 
         SeatAdapter adapter = new SeatAdapter(this, items);
         recyclerView.setAdapter(adapter);
+
+        spinner = (Spinner)findViewById(R.id.spinner);
+        adapters = new CustomAdapter(this, names);
+        spinner.setSelection(0);
+        spinner.setAdapter(adapters);
+        spinner.post(new Runnable() {
+            @Override
+            public void run() {
+                spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        listbooked.add(names[i]);
+                        Toast.makeText(getApplicationContext(),""+listbooked, Toast.LENGTH_LONG).show();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
+            }
+        });
+
     }
+
 
     @Override
     public void onSeatSelected(int count) {
@@ -99,7 +140,7 @@ public class BookingActivity extends AppCompatActivity implements OnSeatSelected
         myJam = new ArrayList<>();
 
         for (int i=0; i<7; i++) {
-            myJamadd.add(new Jam("12:00"));
+            myJam.add(new Jam("12:00"));
         }
 
         recyclerViewJam = findViewById(R.id.rc_jam);

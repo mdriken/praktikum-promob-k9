@@ -9,6 +9,14 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical">
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="357dp"
+        tools:layout_editor_absoluteX="19dp"
+        tools:layout_editor_absoluteY="27dp"
+        android:layout_height="46dp">
+    </Spinner>
+
     //pilihtanggal
     <LinearLayout
         android:id="@+id/layout_tgl"
