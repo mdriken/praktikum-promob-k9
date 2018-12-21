@@ -1,6 +1,7 @@
 package com.example.riken.etic;
 
 
+import com.example.riken.etic.models.JamTersediaResponse;
 import com.example.riken.etic.models.ListBioskopResponse;
 import com.example.riken.etic.models.NewLoginResponse;
 import com.example.riken.etic.models.SedangTayangResponse;
@@ -55,5 +56,14 @@ public interface JsonPlaceHolderApi {
             @Query("token") String token
 
     );
+
+    @POST("get-waktu")
+    Call <List<JamTersediaResponse>> listJamamTersedia(
+            @Field("id_bioskop") int id_bioskop,
+            @Field("tgl") String tgl,
+            @Field("id_film") int id_film
+    );
+
+
 }
 

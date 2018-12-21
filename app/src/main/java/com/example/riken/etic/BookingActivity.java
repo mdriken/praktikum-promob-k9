@@ -1,10 +1,16 @@
 package com.example.riken.etic;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
@@ -15,27 +21,44 @@ import com.example.riken.etic.adapter.CustomAdapter;
 import com.example.riken.etic.adapter.FilmAdapter;
 import com.example.riken.etic.adapter.TanggalAdater;
 import com.example.riken.etic.models.Jam;
+import com.example.riken.etic.models.JamTersediaResponse;
 import com.example.riken.etic.models.Tanggal;
+import com.example.riken.etic.storage.SharedPrefManager;
+import com.luseen.datelibrary.DateHelper;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class BookingActivity extends AppCompatActivity
 //        implements OnSeatSelected
 {
 
-
+    SharedPrefManager sp;
 //    private static final int COLUMNS = 5;
 
 //    private static final int COLUMNS = 11;
 //    private TextView txtSeatSelected;
 
     ArrayList<String> listbooked = new ArrayList<String>();
+    int id_bioskops;
+    int id_films;
+    String jadwal;
+
+    private Call<List<JamTersediaResponse>> call_jam;
+
+    public List<JamTersediaResponse> jamTersediaResponses = new ArrayList<>();
+
 
     List<Tanggal> myTanggal;
-    List<Jam> myJam;
 
+//    List<Jam> myJam;
+    String Tanggal;
     Spinner spinner;
     CustomAdapter adapters;
     String[] names = {
@@ -52,8 +75,13 @@ public class BookingActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
 
-
+        sp = new SharedPrefManager(this);
         setTanggal();
+        LocalBroadcastManager.getInstance(this).registerReceiver(messageReceiver,new IntentFilter("my-event"));
+        id_bioskops = sp.getIdBioskop(SharedPrefManager.ID_BIOSKOP);
+        id_films = sp.getIdFilm(SharedPrefManager.ID_FILM);
+
+        Toast.makeText(this, ""+id_bioskops+" "+id_films, Toast.LENGTH_SHORT).show();
         setJam();
 
 //        txtSeatSelected = (TextView)findViewById(R.id.txt_seat_selected);
@@ -125,14 +153,29 @@ public class BookingActivity extends AppCompatActivity
 //
 //        txtSeatSelected.setText("Book "+count+" seats");
 //    }
+    public BroadcastReceiver messageReceiver = new BroadcastReceiver() {
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        String tgl = intent.getStringExtra("tgl");
+        String thn = ""+2018;
+        Log.d("msg",""+thn+" "+tgl);
+        int id_film = intent.getExtras().getInt("Id film");
+        Toast.makeText(context, "toast"+id_film, Toast.LENGTH_SHORT).show();
+        String concat_date = thn+" "+tgl;
+//        responGetJam(concat_date,)
+    }
+    };
 
     public void setTanggal () {
         RecyclerView recyclerViewTgl;
         TanggalAdater tanggalAdater;
+        Date currentDate = new Date();
+        DateHelper dateHelper = new DateHelper(currentDate);
 
         myTanggal = new ArrayList<>();
         for (int i=0; i<7; i++){
-            myTanggal.add(new Tanggal("14 DES"));
+            myTanggal.add(new Tanggal((dateHelper.getMonthShortName()+" "+(dateHelper.getIntDay()+i))));
+
         }
 
         recyclerViewTgl = findViewById(R.id.rc_tgl);
@@ -148,18 +191,36 @@ public class BookingActivity extends AppCompatActivity
         RecyclerView recyclerViewJam;
         JamAdapter jamAdapter;
 
-        myJam = new ArrayList<>();
-
-        for (int i=0; i<7; i++) {
-            myJam.add(new Jam("12:00"));
-        }
 
         recyclerViewJam = findViewById(R.id.rc_jam);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this,
                 LinearLayoutManager.HORIZONTAL, false);
-        jamAdapter = new JamAdapter(this, myJam);
+        jamAdapter = new JamAdapter(this, jamTersediaResponses);
         recyclerViewJam.setLayoutManager(layoutManager);
         recyclerViewJam.setAdapter(jamAdapter);
+    }
+
+
+    public void responGetJam(String tgl, int id_bioskop, int id_film){
+
+        call_jam = ApiClient.getApiService().listJamamTersedia(id_bioskop,tgl,id_film);
+        call_jam.enqueue(new Callback<List<JamTersediaResponse>>() {
+            @Override
+            public void onResponse(Call<List<JamTersediaResponse>> call, Response<List<JamTersediaResponse>> response) {
+                if(response.code()==200){
+                    jamTersediaResponses = response.body();
+
+//                    sp.getIdJadwal(SharedPrefManager.ID_JADWAL);
+                    setJam();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<JamTersediaResponse>> call, Throwable t) {
+
+            }
+        });
+
     }
 
 }

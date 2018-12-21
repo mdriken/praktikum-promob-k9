@@ -64,9 +64,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public boolean isFavorited(int id){
+    public boolean isFavorited(int id_par){
         SQLiteDatabase sqlLite = this.getReadableDatabase();
-        String query = "select * from "+TABLE_NAME_FILM+" where id = "+id;
+        String query = "select * from "+TABLE_NAME_FILM+" where Id_film = "+id_par;
         Cursor cursor = sqlLite.rawQuery(query,null);
 
         if(cursor.getCount()==0){

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import com.example.riken.etic.BookingActivity;
 import com.example.riken.etic.R;
 import com.example.riken.etic.models.Jadwal;
 import com.example.riken.etic.models.ListBioskopResponse;
+import com.example.riken.etic.storage.SharedPrefManager;
 
 import java.util.List;
 
@@ -22,6 +24,8 @@ import java.util.List;
         private Context context;
         private List<Jadwal> jadwal;
         private List<ListBioskopResponse> listBioskopResponses;
+        SharedPrefManager sp;
+
 
         public JadwalAdapter (Context context, List<ListBioskopResponse> listBioskopResponses) {
             this.context = context;
@@ -34,6 +38,8 @@ import java.util.List;
             View view;
             LayoutInflater inflater = LayoutInflater.from(context);
             view = inflater.inflate(R.layout.cardiview_bioskop, viewGroup ,false);
+
+            sp = new SharedPrefManager(context);
 
             return new MyViewHolder(view);
         }
@@ -68,7 +74,12 @@ import java.util.List;
             myViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    int id1 = listBioskopResponses.get(position).getIdBioskop();
+                    int id2 = listBioskopResponses.get(position).getId();
+
+                    Log.wtf("idnyaa", "Bioskop "+id1+ " ID" +  id2);
                     Intent intent = new Intent(context, BookingActivity.class);
+                    sp.setIdBioskop(SharedPrefManager.ID_BIOSKOP, listBioskopResponses.get(position).getIdBioskop());
                     context.startActivity(intent);
                 }
             });

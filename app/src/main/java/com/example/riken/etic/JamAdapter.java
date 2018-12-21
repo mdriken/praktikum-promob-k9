@@ -9,16 +9,19 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.riken.etic.models.Jam;
+import com.example.riken.etic.models.JamTersediaResponse;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class JamAdapter extends RecyclerView.Adapter<JamAdapter.MyViewHolder> {
     private Context context;
+    private List<JamTersediaResponse> jamTersediaResponses = new ArrayList<>();
     private List<Jam> myJam;
 
-    public JamAdapter (Context context, List<Jam> myJam) {
+    public JamAdapter (Context context,List<JamTersediaResponse> jamTersediaResponses) {
         this.context = context;
-        this.myJam = myJam;
+        this.jamTersediaResponses = jamTersediaResponses;
     }
 
     @NonNull
@@ -33,13 +36,13 @@ public class JamAdapter extends RecyclerView.Adapter<JamAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull JamAdapter.MyViewHolder myViewHolder, final int position) {
-        myViewHolder.tv_film_jam.setText(myJam.get(position).getJam());
+        myViewHolder.tv_film_jam.setText(jamTersediaResponses.get(position).getJamMulai());
 
     }
 
     @Override
     public int getItemCount() {
-        return myJam.size();
+        return jamTersediaResponses.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -47,14 +50,10 @@ public class JamAdapter extends RecyclerView.Adapter<JamAdapter.MyViewHolder> {
         TextView tv_film_jam;
 
 
-
-
         public MyViewHolder(View itemView) {
             super(itemView);
 
             tv_film_jam = itemView.findViewById(R.id.tv_jam_tyg);
-
-
 
         }
     }

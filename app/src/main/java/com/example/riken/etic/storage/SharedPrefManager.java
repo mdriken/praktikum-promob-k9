@@ -3,18 +3,25 @@ package com.example.riken.etic.storage;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.riken.etic.models.LoginResponse;
 import com.example.riken.etic.models.NewLoginResponse;
 import com.example.riken.etic.models.User;
 
 public class SharedPrefManager {
+
     private static final String SHARED_PREF_NAME = "credential";
+    public static final String ID_FILM    = "id_film";
+    public static final String ID_BIOSKOP = "id_bioskop";
+    public static final String ID_JADWAL  = "id_jadwal";
 
     private static SharedPrefManager mInstance;
     private Context mContext;
 
-    private SharedPrefManager (Context mContext){
+    private static SharedPreferences sharedPreferences;
+
+    public SharedPrefManager(Context mContext){
         this.mContext = mContext;
+        sharedPreferences = mContext.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
+
 
     }
 
@@ -23,6 +30,29 @@ public class SharedPrefManager {
             mInstance = new SharedPrefManager(mContext);
         }
         return mInstance;
+    }
+
+    public void setIdFilm(String key, int val){
+        sharedPreferences.edit().putInt(key,val).apply();
+    }
+    public void setIdBioskop(String key, int val){
+        sharedPreferences.edit().putInt(key,val).apply();
+    }
+    public String setIiJadwal(String key, String valb){
+        sharedPreferences.edit().putString(key,valb).apply();
+        return valb;
+    }
+
+    public  int getIdFilm(String key) {
+        return sharedPreferences.getInt(key,0);
+    }
+
+    public  int getIdBioskop(String key) {
+        return sharedPreferences.getInt(key,0);
+    }
+
+    public  String getIdJadwal(String key) {
+        return sharedPreferences.getString(key,"");
     }
 
     public void saveToken(NewLoginResponse newLoginResponse){

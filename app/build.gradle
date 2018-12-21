@@ -41,5 +41,5 @@ dependencies {
 
     implementation 'com.github.ivbaranov:materialfavoritebutton:0.1.4'
     implementation "android.arch.lifecycle:extensions:1.1.1"
-
+    implementation 'com.github.armcha:datehelper:2.2.1'
 }
