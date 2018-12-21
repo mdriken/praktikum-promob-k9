@@ -1,5 +1,5 @@
-package com.example.riken.etic;
-
-public interface OnSeatSelected {
-    void onSeatSelected(int count);
-}
+//package com.example.riken.etic;
+//
+//public interface OnSeatSelected {
+//    void onSeatSelected(int count);
+//}

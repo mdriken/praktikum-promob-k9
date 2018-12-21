@@ -4,12 +4,14 @@ public class Tanggal {
 
     private String Tanggal;
 
+
     public Tanggal() {
 
     }
 
     public Tanggal (String tanggal) {
         Tanggal = tanggal;
+
     }
 
     public String getTanggal() {
@@ -19,4 +21,6 @@ public class Tanggal {
     public void setTanggal(String tanggal) {
         Tanggal = tanggal;
     }
+
+
 }
