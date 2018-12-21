@@ -1,7 +1,10 @@
 package com.example.riken.etic;
 
 
+import android.support.v7.widget.CardView;
+
 import com.example.riken.etic.models.JamTersediaResponse;
+import com.example.riken.etic.models.KursiTersediaResponse;
 import com.example.riken.etic.models.ListBioskopResponse;
 import com.example.riken.etic.models.NewLoginResponse;
 import com.example.riken.etic.models.SedangTayangResponse;
@@ -57,13 +60,24 @@ public interface JsonPlaceHolderApi {
 
     );
 
+    @FormUrlEncoded
     @POST("get-waktu")
     Call <List<JamTersediaResponse>> listJamamTersedia(
             @Field("id_bioskop") int id_bioskop,
-            @Field("tgl") String tgl,
+//            @Field("tgl") String tgl,
             @Field("id_film") int id_film
     );
 
+
+    @FormUrlEncoded
+    @POST("return-all-kursi")
+    Call <List<KursiTersediaResponse>> kursiTersedia(
+      @Field("id_bioskop") int id_bioskop,
+      @Field("id_film") int id_film,
+      @Field("tgl") String tgl,
+      @Field("jam") String jam,
+      @Query("token") String token
+    );
 
 }
 

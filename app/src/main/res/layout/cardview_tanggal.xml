@@ -3,7 +3,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="80dp"
     android:layout_margin="10dp"
-    android:layout_height="40dp">
+    android:layout_height="40dp"
+    android:id="@+id/cv_tgl_book"
+
+    >
+
 
     <TextView
         android:layout_width="match_parent"

@@ -12,6 +12,8 @@ public class SharedPrefManager {
     public static final String ID_FILM    = "id_film";
     public static final String ID_BIOSKOP = "id_bioskop";
     public static final String ID_JADWAL  = "id_jadwal";
+    public static final String TANGGAL    = "tanggal";
+    public static final String JAM        = "jam";
 
     private static SharedPrefManager mInstance;
     private Context mContext;
@@ -21,8 +23,6 @@ public class SharedPrefManager {
     public SharedPrefManager(Context mContext){
         this.mContext = mContext;
         sharedPreferences = mContext.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
-
-
     }
 
     public static synchronized SharedPrefManager getmInstance(Context mContext){
@@ -42,6 +42,27 @@ public class SharedPrefManager {
         sharedPreferences.edit().putString(key,valb).apply();
         return valb;
     }
+
+    public String setStringJam(String key, String value){
+        sharedPreferences.edit().putString(key,value).apply();
+        return value;
+    }
+
+    public  String getStringJam(String key) {
+        return sharedPreferences.getString(key,"");
+    }
+
+    public String setTanggal(String key, String value){
+        sharedPreferences.edit().putString(key,value).apply();
+        return value;
+    }
+
+    public  String getTanggal(String key) {
+        return sharedPreferences.getString(key,"");
+    }
+
+
+
 
     public  int getIdFilm(String key) {
         return sharedPreferences.getInt(key,0);

@@ -10,16 +10,18 @@ import android.widget.TextView;
 
 import com.example.riken.etic.R;
 
+import java.util.ArrayList;
+
 public class CustomAdapter extends ArrayAdapter <String> {
 
     Context context;
     String[] names;
-//    int[] images;
+    ArrayList<String> mylist = new ArrayList<String>();
 
-    public CustomAdapter(Context context, String[] names) {
-        super(context, R.layout.spinner_item, names);
+    public CustomAdapter(Context context, ArrayList<String> mylist) {
+        super(context, R.layout.spinner_item, mylist);
         this.context = context;
-        this.names = names;
+        this.mylist = mylist;
 //        this.images = images;
 
     }
@@ -31,7 +33,7 @@ public class CustomAdapter extends ArrayAdapter <String> {
         TextView tl = (TextView)row.findViewById(R.id.tv_kursi);
 //        ImageView il = (ImageView)row.findViewById(R.id.iv_kursi);
 
-        tl.setText(names[position]);
+        tl.setText(mylist.get(position));
 //        il.setImageResource(images[position]);
 
         return row ;
@@ -45,7 +47,7 @@ public class CustomAdapter extends ArrayAdapter <String> {
         TextView tl = (TextView)row.findViewById(R.id.tv_kursi);
 //        ImageView il = (ImageView)row.findViewById(R.id.iv_kursi);
 
-        tl.setText(names[position]);
+        tl.setText(mylist.get(position));
 //        il.setImageResource(images[position]);
 
         return row ;

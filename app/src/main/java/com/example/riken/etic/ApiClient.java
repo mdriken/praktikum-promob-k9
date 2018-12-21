@@ -12,7 +12,7 @@ public class ApiClient {
     private static JsonPlaceHolderApi INSTANCE;
 
 //    private static final String URL =  "http://10.0.0.2:8000/api/auth/";
-//    private static final String URL = "http://10.164.129.195:8000/api/auth/"; //connect to android
+//    private static final String URL = "http://192.168.43.160:8000/api/auth/"; //connect to android
     private static final String URL =  "http://172.17.100.2:8000/api/auth/";
 
     public static JsonPlaceHolderApi getApiService(){

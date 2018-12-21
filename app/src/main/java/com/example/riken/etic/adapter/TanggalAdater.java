@@ -2,6 +2,7 @@ package com.example.riken.etic.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.CardView;
@@ -25,6 +26,7 @@ public class TanggalAdater extends RecyclerView.Adapter<TanggalAdater.MyViewHold
     private List <Tanggal> myTanggal;
     Date currentDate;
     int year;
+    int row_index;
     SharedPrefManager sp;
 
     public TanggalAdater (Context context, List<Tanggal> myTanggal) {
@@ -50,6 +52,8 @@ public class TanggalAdater extends RecyclerView.Adapter<TanggalAdater.MyViewHold
             @Override
             public void onClick(View v) {
                 currentDate = new Date();
+                row_index = position;
+                notifyDataSetChanged();
                 DateHelper dateHelper = new DateHelper(currentDate);
                 year = dateHelper.getIntYear();
                 Intent intent = new Intent("tgl_selected");
@@ -61,6 +65,13 @@ public class TanggalAdater extends RecyclerView.Adapter<TanggalAdater.MyViewHold
 
             }
         });
+        if(row_index==position){
+            myViewHolder.tv_film_tgl.setTextColor(Color.parseColor("#ffffff"));
+            myViewHolder.mycard.setCardBackgroundColor(Color.parseColor("#567845"));
+        }else{
+            myViewHolder.mycard.setCardBackgroundColor(Color.parseColor("#ffffff"));
+            myViewHolder.tv_film_tgl.setTextColor(Color.parseColor("#000000"));
+        }
 
     }
 
@@ -72,7 +83,7 @@ public class TanggalAdater extends RecyclerView.Adapter<TanggalAdater.MyViewHold
     public static class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView tv_film_tgl;
-
+        CardView mycard;
 
 
 
@@ -80,7 +91,7 @@ public class TanggalAdater extends RecyclerView.Adapter<TanggalAdater.MyViewHold
             super(itemView);
 
             tv_film_tgl = itemView.findViewById(R.id.tv_tgl_tgl);
-
+            mycard = itemView.findViewById(R.id.cv_tgl_book);
 
 
         }

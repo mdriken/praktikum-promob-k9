@@ -2,6 +2,7 @@ package com.example.riken.etic.adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -24,6 +25,7 @@ import java.util.List;
         private Context context;
         private List<Jadwal> jadwal;
         private List<ListBioskopResponse> listBioskopResponses;
+        public int row_index;
         SharedPrefManager sp;
 
 
@@ -83,6 +85,9 @@ import java.util.List;
                     context.startActivity(intent);
                 }
             });
+
+
+
 
 
 

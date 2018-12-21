@@ -26,6 +26,7 @@ public class FilmTabLayoutAdapter extends RecyclerView.Adapter<FilmTabLayoutAdap
     private List<Film> films ;
     private List<DataItem> dataItems;
     public final String Url = "http://172.17.100.2:8000/img/";
+//    public final String Url = "http://192.168.43.160:8000/img/";
     public FilmTabLayoutAdapter(Context context, List<DataItem> dataItems) {
         this.context = context;
         this.dataItems = dataItems;
