@@ -37,6 +37,7 @@ public class TanggalAdater extends RecyclerView.Adapter<TanggalAdater.MyViewHold
     @Override
     public void onBindViewHolder(@NonNull TanggalAdater.MyViewHolder myViewHolder, final int position) {
         myViewHolder.tv_film_tgl.setText(myTanggal.get(position).getTanggal());
+
     }
 
     @Override
@@ -50,10 +51,12 @@ public class TanggalAdater extends RecyclerView.Adapter<TanggalAdater.MyViewHold
 
 
 
+
         public MyViewHolder(View itemView) {
             super(itemView);
 
             tv_film_tgl = itemView.findViewById(R.id.tv_tgl_tgl);
+
 
 
         }

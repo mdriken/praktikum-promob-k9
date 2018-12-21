@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.riken.etic.adapter.FilmAdapter;
 import com.example.riken.etic.adapter.TanggalAdater;
+import com.example.riken.etic.models.Jam;
 import com.example.riken.etic.models.Tanggal;
 
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ public class BookingActivity extends AppCompatActivity implements OnSeatSelected
     private static final int COLUMNS = 11;
     private TextView txtSeatSelected;
     List<Tanggal> myTanggal;
+    List<Jam> myJam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,7 @@ public class BookingActivity extends AppCompatActivity implements OnSeatSelected
 
 
         setTanggal();
+        setJam();
 
         txtSeatSelected = (TextView)findViewById(R.id.txt_seat_selected);
 
@@ -76,7 +79,7 @@ public class BookingActivity extends AppCompatActivity implements OnSeatSelected
         TanggalAdater tanggalAdater;
 
         myTanggal = new ArrayList<>();
-        for (int i=0; i<6; i++){
+        for (int i=0; i<7; i++){
             myTanggal.add(new Tanggal("14 DES"));
         }
 
@@ -87,6 +90,24 @@ public class BookingActivity extends AppCompatActivity implements OnSeatSelected
         recyclerViewTgl.setLayoutManager(layoutManager);
         recyclerViewTgl.setAdapter(tanggalAdater);
 
+    }
+
+    public void setJam() {
+        RecyclerView recyclerViewJam;
+        JamAdapter jamAdapter;
+
+        myJam = new ArrayList<>();
+
+        for (int i=0; i<7; i++) {
+            myJamadd.add(new Jam("12:00"));
+        }
+
+        recyclerViewJam = findViewById(R.id.rc_jam);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this,
+                LinearLayoutManager.HORIZONTAL, false);
+        jamAdapter = new JamAdapter(this, myJam);
+        recyclerViewJam.setLayoutManager(layoutManager);
+        recyclerViewJam.setAdapter(jamAdapter);
     }
 
 }
