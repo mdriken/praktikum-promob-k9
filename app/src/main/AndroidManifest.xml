@@ -12,6 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.MainActivity"
+            android:screenOrientation="portrait">
         <activity android:name=".activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,9 +27,14 @@
         <activity android:name=".activity.MainActivity">
 
         </activity>
-        <activity android:name=".activity.RegisterActivity" />
-        <activity android:name=".activity.DetailFilmActivity" />
-        <activity android:name=".fragment.MainFilmTablayout" />
+        <activity android:name=".activity.RegisterActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.DetailFilmActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".fragment.MainFilmTablayout"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".BookingActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

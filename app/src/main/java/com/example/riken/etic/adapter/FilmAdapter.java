@@ -62,8 +62,7 @@ public class FilmAdapter extends RecyclerView.Adapter<FilmAdapter.MyViewHolder> 
             }
         });
 
-//        Intent intent = new Intent(context, TestView.class);
-//        intent.p
+
 
 
     }
