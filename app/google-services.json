@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "408537316024",
+    "firebase_url": "https://etic-6fe72.firebaseio.com",
+    "project_id": "etic-6fe72",
+    "storage_bucket": "etic-6fe72.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:408537316024:android:469db21560bba75f",
+        "android_client_info": {
+          "package_name": "com.example.riken.etic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "408537316024-rf5fe5f864tjrmom4om9g0fvnqc58noj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyiXtOBtINubweQ-oyvswb2pFg2DLJp6A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
