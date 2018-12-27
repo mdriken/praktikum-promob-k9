@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.activity_order">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ToolbarColoredBackArrow"
+        app:popupTheme="@style/AppTheme"
+        />
+
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <TextView
+            android:id="@+id/txt_no_order"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NOMOR ORDER :"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_no_order1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/txt_judul"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="JUDUL FILM :"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_judul1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bumblebee" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/txt_bioskop"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BIOSKOP :"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_bioskop1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Beach Walk XXI" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorPrimaryDark"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/txt_harga_tiket1"
+                android:layout_width="138dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/txt_harga_tiket"
+                android:layout_marginStart="-14dp"
+                android:layout_toEndOf="@+id/txt_jam1"
+                android:text="Rp.250.000"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_harga_tiket3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/txt_harga_tiket"
+                android:layout_marginBottom="136dp"
+                android:text="Rp.50.000"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/colorPrimaryDark"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <TextView
+                android:id="@+id/txt_harga_tiket"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/txt_kursi1"
+                android:layout_marginBottom="72dp"
+                android:text="TOTAL BAYAR"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txt_harga_tiket2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignStart="@+id/txt_kursi1"
+                android:layout_marginBottom="166dp"
+                android:text="TOTAL HARGA TIKET :"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txt_total_duduk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/txt_kursi"
+                android:layout_marginEnd="25dp"
+                android:text="TOTAL TEMPAT DUDUK" />
+
+            <TextView
+                android:id="@+id/txt_total_duduk1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/txt_total_duduk"
+                android:layout_alignTop="@+id/txt_kursi1"
+                android:text="5"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_kursi1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/txt_jadwal1"
+                android:layout_marginTop="145dp"
+                android:text="A1, A2, B1, B6, G1"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_jam1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/txt_jam"
+                android:layout_alignTop="@+id/txt_jadwal1"
+                android:text="14:25"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_kursi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/txt_jadwal1"
+                android:layout_marginTop="118dp"
+                android:text="TEMPAT DUDUK" />
+
+            <TextView
+                android:id="@+id/txt_jam"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/txt_total_duduk"
+                android:layout_alignTop="@+id/txt_jadwal"
+                android:text="JAM" />
+
+            <TextView
+                android:id="@+id/txt_jadwal1"
+                android:layout_width="144dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="71dp"
+                android:text="Jumat, 21 Des 2018"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_jadwal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignStart="@+id/txt_jadwal1"
+                android:layout_marginTop="43dp"
+                android:text="JADWAL" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginBottom="13dp"
+                android:text="Lanjutkan" />
+
+
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
