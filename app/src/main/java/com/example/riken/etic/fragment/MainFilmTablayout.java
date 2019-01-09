@@ -20,7 +20,7 @@ public class MainFilmTablayout extends AppCompatActivity implements FragmentSeda
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_film_tablayout);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 
@@ -29,13 +29,13 @@ public class MainFilmTablayout extends AppCompatActivity implements FragmentSeda
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tablayoutfilm);
+        TabLayout tabLayout = findViewById(R.id.tablayoutfilm);
         tabLayout.addTab(tabLayout.newTab().setText("Sedang Tayang"));
         tabLayout.addTab(tabLayout.newTab().setText("Akan Tayang"));
 //        tabLayout.addTab(tabLayout.newTab().setText("Tab 3"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-        final ViewPager viewPager = (ViewPager) findViewById(R.id.pagertab);
+        final ViewPager viewPager = findViewById(R.id.pagertab);
         final PagerTabFilmAdapter adapter = new PagerTabFilmAdapter(getSupportFragmentManager(),tabLayout.getTabCount());
         viewPager.setAdapter(adapter);
         viewPager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));

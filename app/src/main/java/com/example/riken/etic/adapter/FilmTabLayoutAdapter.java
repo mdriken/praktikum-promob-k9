@@ -3,6 +3,7 @@ package com.example.riken.etic.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,8 +12,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.riken.etic.R;
 import com.example.riken.etic.activity.DetailFilmActivity;
+import com.example.riken.etic.models.DataItem;
 import com.example.riken.etic.models.Film;
 
 import java.util.List;
@@ -20,11 +23,13 @@ import java.util.List;
 public class FilmTabLayoutAdapter extends RecyclerView.Adapter<FilmTabLayoutAdapter.MyViewHolder> {
 
     private Context context;
-    private List<Film> films;
-
-    public FilmTabLayoutAdapter(Context context, List<Film> films) {
+    private List<Film> films ;
+    private List<DataItem> dataItems;
+    public final String Url = "http://172.17.100.2:8000/img/";
+//    public final String Url = "http://192.168.43.160:8000/img/";
+    public FilmTabLayoutAdapter(Context context, List<DataItem> dataItems) {
         this.context = context;
-        this.films = films;
+        this.dataItems = dataItems;
     }
 
     @NonNull
@@ -39,22 +44,26 @@ public class FilmTabLayoutAdapter extends RecyclerView.Adapter<FilmTabLayoutAdap
 
     @Override
     public void onBindViewHolder(@NonNull FilmTabLayoutAdapter.MyViewHolder myViewHolder, final int position) {
-        myViewHolder.iv_film_bg.setImageResource(films.get(position).getThumbnails());
-        myViewHolder.tv_film_genre.setText(films.get(position).getGenre());
-        myViewHolder.tv_film.setText(films.get(position).getTitle());
+        final DataItem dataItem = dataItems.get(position);
+        Glide.with(myViewHolder.itemView).load(Url+dataItems.get(position).getFotoFilm()).into(myViewHolder.iv_film_bg);
+//        myViewHolder.iv_film_bg.setImageResource(R.drawable.searhing);
+        myViewHolder.tv_film_genre.setText(dataItem.getNamaGenre());
+        myViewHolder.tv_film.setText(dataItem.getNamaFilm());
         myViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
 
-                Intent intent = new Intent(context, DetailFilmActivity.class);
+//                Intent intent = new Intent(context, DetailFilmActivity.class);
                 //parsing data to detail
-                intent.putExtra("Title", films.get(position).getTitle());
-                intent.putExtra("Genre", films.get(position).getGenre());
-                intent.putExtra("Duration", films.get(position).getDuration());
-//                intent.putExtra("Sutradara", films.get(position).getSutradara());
-                intent.putExtra("Thumbnail", films.get(position).getThumbnails());
-                intent.putExtra("Judul", films.get(position).getJudulTab());
+                Intent intent = new Intent(context,DetailFilmActivity.class);
+                intent.putExtra("Id film",dataItems.get(position).getId());
+                intent.putExtra("Title",dataItems.get(position).getNamaFilm());
+                intent.putExtra("Genre",dataItems.get(position).getNamaGenre());
+                intent.putExtra("Duration",dataItems.get(position).getDurasi());
+                intent.putExtra("Thumbnail", R.drawable.searhing);
+                intent.putExtra("Judul",dataItems.get(position).getNamaFilm());
+                LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
                 context.startActivity(intent);
 
             }
@@ -69,7 +78,7 @@ public class FilmTabLayoutAdapter extends RecyclerView.Adapter<FilmTabLayoutAdap
 
     @Override
     public int getItemCount() {
-        return films.size();
+        return dataItems.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {

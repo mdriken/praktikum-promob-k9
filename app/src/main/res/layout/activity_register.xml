@@ -48,7 +48,7 @@
                     android:layout_height="wrap_content"
                     style="@style/Widget.MaterialComponents.TextInputEditText.FilledBox.Dense"
                     android:hint="Email"
-                    android:inputType="phone"
+                    android:inputType="textEmailAddress"
                     android:layout_marginBottom="16dp"/>
 
             </android.support.design.widget.TextInputLayout>

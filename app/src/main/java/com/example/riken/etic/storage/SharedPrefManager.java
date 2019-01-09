@@ -3,18 +3,26 @@ package com.example.riken.etic.storage;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.riken.etic.models.LoginResponse;
+import com.example.riken.etic.models.NewLoginResponse;
 import com.example.riken.etic.models.User;
 
 public class SharedPrefManager {
+
     private static final String SHARED_PREF_NAME = "credential";
+    public static final String ID_FILM    = "id_film";
+    public static final String ID_BIOSKOP = "id_bioskop";
+    public static final String ID_JADWAL  = "id_jadwal";
+    public static final String TANGGAL    = "tanggal";
+    public static final String JAM        = "jam";
 
     private static SharedPrefManager mInstance;
     private Context mContext;
 
-    private SharedPrefManager (Context mContext){
-        this.mContext = mContext;
+    private static SharedPreferences sharedPreferences;
 
+    public SharedPrefManager(Context mContext){
+        this.mContext = mContext;
+        sharedPreferences = mContext.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
     }
 
     public static synchronized SharedPrefManager getmInstance(Context mContext){
@@ -24,15 +32,54 @@ public class SharedPrefManager {
         return mInstance;
     }
 
-    public void saveToken(LoginResponse loginResponse){
+    public void setIdFilm(String key, int val){
+        sharedPreferences.edit().putInt(key,val).apply();
+    }
+    public void setIdBioskop(String key, int val){
+        sharedPreferences.edit().putInt(key,val).apply();
+    }
+    public String setIiJadwal(String key, String valb){
+        sharedPreferences.edit().putString(key,valb).apply();
+        return valb;
+    }
+
+    public String setStringJam(String key, String value){
+        sharedPreferences.edit().putString(key,value).apply();
+        return value;
+    }
+
+    public  String getStringJam(String key) {
+        return sharedPreferences.getString(key,"");
+    }
+
+    public String setTanggal(String key, String value){
+        sharedPreferences.edit().putString(key,value).apply();
+        return value;
+    }
+
+    public  String getTanggal(String key) {
+        return sharedPreferences.getString(key,"");
+    }
+
+
+
+
+    public  int getIdFilm(String key) {
+        return sharedPreferences.getInt(key,0);
+    }
+
+    public  int getIdBioskop(String key) {
+        return sharedPreferences.getInt(key,0);
+    }
+
+    public  String getIdJadwal(String key) {
+        return sharedPreferences.getString(key,"");
+    }
+
+    public void saveToken(NewLoginResponse newLoginResponse){
         SharedPreferences sharedPreferences =mContext.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
         SharedPreferences.Editor editor =sharedPreferences.edit();
-
-        editor.putBoolean("status",loginResponse.isStatus());
-        editor.putString("access_token",loginResponse.getAccess_token());
-        editor.putString("token_type",loginResponse.getToken_type());
-        editor.putInt("expires_in",loginResponse.getExpires_in());
-
+        editor.putString("access_token",newLoginResponse.getAccessToken());
         editor.apply();
     }
 
@@ -45,17 +92,19 @@ public class SharedPrefManager {
 
     public boolean isLoggin(){
         SharedPreferences sharedPreferences =mContext.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
-        return sharedPreferences.getString("token_type",null) != null;
+        return sharedPreferences.getString("access_token",null) != null;
     }
 
-    public LoginResponse getToken(){
+    public NewLoginResponse getToken(){
         SharedPreferences sharedPreferences =mContext.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
-        return new LoginResponse(
-                sharedPreferences.getBoolean("status",false),
-                sharedPreferences.getString("access_token",null),
-                sharedPreferences.getString("token_type",null),
-                sharedPreferences.getInt("expires_in",0)
+        return new NewLoginResponse(
+                sharedPreferences.getString("access_token",null)
         );
+    }
+
+    public String getMyToken(){
+        SharedPreferences sharedPreferences =mContext.getSharedPreferences(SHARED_PREF_NAME,Context.MODE_PRIVATE);
+        return sharedPreferences.getString("access_token","");
     }
 
     public User getUser(){

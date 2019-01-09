@@ -4,7 +4,6 @@
     <color name="colorPrimaryDark">#1a2735</color>
     <color name="colorAccent">#456482</color>
     <color name="whiteItem">#ffffff</color>
-    <color name="colorTransparan">#e5062145</color>
     <!--<item type="id" name="home">#ffffff</item>-->
 </resources>
 

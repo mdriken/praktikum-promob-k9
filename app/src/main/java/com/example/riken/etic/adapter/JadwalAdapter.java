@@ -1,16 +1,22 @@
 package com.example.riken.etic.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.riken.etic.BookingActivity;
 import com.example.riken.etic.R;
 import com.example.riken.etic.models.Jadwal;
+import com.example.riken.etic.models.ListBioskopResponse;
+import com.example.riken.etic.storage.SharedPrefManager;
 
 import java.util.List;
 
@@ -18,10 +24,14 @@ import java.util.List;
 
         private Context context;
         private List<Jadwal> jadwal;
+        private List<ListBioskopResponse> listBioskopResponses;
+        public int row_index;
+        SharedPrefManager sp;
 
-        public JadwalAdapter (Context context, List<Jadwal> jadwal) {
+
+        public JadwalAdapter (Context context, List<ListBioskopResponse> listBioskopResponses) {
             this.context = context;
-            this.jadwal = jadwal;
+            this.listBioskopResponses = listBioskopResponses;
         }
 
         @NonNull
@@ -31,14 +41,17 @@ import java.util.List;
             LayoutInflater inflater = LayoutInflater.from(context);
             view = inflater.inflate(R.layout.cardiview_bioskop, viewGroup ,false);
 
+            sp = new SharedPrefManager(context);
+
             return new MyViewHolder(view);
         }
 
         @Override
         public void onBindViewHolder(@NonNull JadwalAdapter.MyViewHolder myViewHolder, final int position) {
-            myViewHolder.tv_bioskop.setText(jadwal.get(position).getBioskopNamre());
-            myViewHolder.tv_harga.setText(jadwal.get(position).getHarga());
-
+//            myViewHolder.tv_bioskop.setText(jadwal.get(position).getBioskopNamre());
+//            myViewHolder.tv_harga.setText(jadwal.get(position).getHarga());
+            myViewHolder.tv_bioskop.setText(listBioskopResponses.get(position).getNamaBioskop());
+            myViewHolder.tv_harga.setText(String.valueOf(listBioskopResponses.get(position).getHarga()));
 //            myViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
@@ -60,13 +73,30 @@ import java.util.List;
 //        Intent intent = new Intent(context, TestView.class);
 //        intent.p
 
+            myViewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int id1 = listBioskopResponses.get(position).getIdBioskop();
+                    int id2 = listBioskopResponses.get(position).getId();
+
+                    Log.wtf("idnyaa", "Bioskop "+id1+ " ID" +  id2);
+                    Intent intent = new Intent(context, BookingActivity.class);
+                    sp.setIdBioskop(SharedPrefManager.ID_BIOSKOP, listBioskopResponses.get(position).getIdBioskop());
+                    context.startActivity(intent);
+                }
+            });
+
+
+
+
+
 
         }
 
 
         @Override
         public int getItemCount() {
-            return jadwal.size();
+            return listBioskopResponses.size();
         }
 
         public static class MyViewHolder extends RecyclerView.ViewHolder{
